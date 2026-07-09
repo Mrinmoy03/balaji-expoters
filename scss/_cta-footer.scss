@@ -1,0 +1,186 @@
+// ============================================================
+// _cta-footer.scss — Final CTA & Footer styling
+// ============================================================
+
+@use "variables" as *;
+
+// Shared background properties helper or style
+.final-cta-section,
+.main-footer-wrap {
+    background-color: #0A2550;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+
+.main-footer-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../images/servicebg.png') center/cover no-repeat;
+    opacity: 0.3;
+    /* Adjust this value (0 to 1) */
+    z-index: -1;
+}
+
+.final-cta-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../images/servicebg.png') center/cover no-repeat;
+    opacity: 0.3;
+    /* Adjust this value (0 to 1) */
+    z-index: -1;
+}
+
+.main-footer-wrap {}
+
+// ── Final CTA Section ────────────────────────────────────────
+.final-cta-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    .cta-heading {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 500;
+        line-height: 1.15;
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .cta-text-wrapper {
+        @media (min-width: 992px) {
+            padding-left: 2rem;
+        }
+    }
+
+    .cta-text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+}
+
+// ── Main Footer ──────────────────────────────────────────────
+.main-footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    position: relative;
+    z-index: 2;
+
+    .container {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-desc {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 320px;
+    }
+
+    .footer-socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        .social-divider {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
+        }
+    }
+
+    .footer-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 1.8rem;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 0.9rem;
+
+            a {
+                color: rgba(255, 255, 255, 0.55);
+                text-decoration: none;
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}
+
+.footer-socials {
+    a {
+        text-decoration: none;
+    }
+}
+
+// ── Footer Bottom & Watermark ────────────────────────────────
+.footer-bottom {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+
+    .copyright-text {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 0;
+    }
+}
+
+.footer-watermark {
+    position: absolute;
+    bottom: -4.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.025);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+}

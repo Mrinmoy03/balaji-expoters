@@ -1,0 +1,100 @@
+// ============================================================
+// _services.scss — Services Section & Cards
+// ============================================================
+
+@use "variables" as *;
+
+.service-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #f8f9fa; // fallback
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem 2.5rem;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    // Hover image overlay
+    .card-hover-overlay {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(6, 25, 44, 0.92) 0%,
+                rgba(6, 25, 44, 0.6) 60%,
+                rgba(6, 25, 44, 0.35) 100%
+            );
+        }
+    }
+
+    // All direct children sit above overlay
+    .service-icon,
+    > div {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+
+        .card-hover-overlay {
+            opacity: 1;
+        }
+
+        .service-title {
+            color: #fff;
+        }
+
+        .service-desc {
+            color: rgba(255, 255, 255, 0.72);
+        }
+    }
+}
+
+.service-icon {
+    font-size: 2.2rem;
+    color: $accent;
+    // margin-bottom: 1.5rem;
+
+    i {
+        display: inline-block;
+    }
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 1rem;
+}
+
+.service-desc {
+    color: #3F5871; // matching section-body color
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}

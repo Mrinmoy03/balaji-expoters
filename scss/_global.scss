@@ -1,0 +1,359 @@
+// _global.scss — Global base styles
+
+// ============================================================
+// Typography
+// ============================================================
+body {
+    font-family: "Archivo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: "signature";
+    src: url("../font/Autography.woff2") format("woff2");
+    font-style: normal;
+}
+
+.lh-base {
+
+    line-height: 1.6 !important;
+}
+
+// ============================================================
+// Header / Navbar
+// ============================================================
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    padding: 1.25rem 0;
+
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar-brand {
+        padding: 0;
+        margin-right: 2rem;
+
+        img {
+            height: 55px;
+            width: auto;
+        }
+    }
+
+    // Nav links
+    .navbar-nav {
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+            }
+
+            // Active state — red square dot before the link text
+            &.active {
+                color: #fff;
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 7px;
+                    height: 7px;
+                    background-color: #EF3943;
+                    margin-right: 6px;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+    }
+
+    // Mobile toggler
+    .navbar-toggler {
+        color: #fff;
+        border: none;
+        padding: 0.25rem 0.5rem;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        i {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    }
+}
+
+// ============================================================
+// Mobile Offcanvas Nav
+// ============================================================
+.mobile-nav {
+    background-color: #06192C;
+
+    .offcanvas-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .offcanvas-brand {
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+            color: #EF3943;
+        }
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #EF3943;
+            }
+
+            &.active {
+                color: #fff;
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 7px;
+                    height: 7px;
+                    background-color: #EF3943;
+                    margin-right: 8px;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+    }
+
+    .btn-accent {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// ============================================================
+// Hero Section with Vertical Swiper
+// ============================================================
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #06192C;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .hero-swiper-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center right;
+            background-repeat: no-repeat;
+        }
+    }
+
+    // Gradient Overlay: Fades from solid navy/dark on the left to transparent on the right
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(90deg, #06192C 0%, #06192C 45%, rgba(6, 25, 44, 0.4) 80%, rgba(6, 25, 44, 0.1) 100%);
+    }
+
+    // Hero Text Content
+    .hero-content-col {
+        h1 {
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+        }
+    }
+}
+
+// Vertical Swiper pagination styling to match the screenshot
+.hero-swiper-container {
+    .swiper-pagination-vertical.swiper-pagination-bullets {
+        right: 40px !important;
+        left: auto;
+        transform: translateY(-50%);
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            opacity: 1;
+            margin: 12px 0;
+            display: block;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &.swiper-pagination-bullet-active {
+                background-color: #fff;
+                border-color: #fff;
+                box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+            }
+        }
+    }
+}
+
+// ============================================================
+// Marquee Section
+// ============================================================
+.client-logos-section {
+    background-color: #fff;
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+}
+
+.marquee-container {
+    width: 60%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    margin-inline: auto;
+
+    // Side fade gradients
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 150px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding-left: 5rem;
+    animation: marquee-scroll 25s linear infinite;
+    width: max-content;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    .marquee-logo {
+        height: 35px;
+        width: auto;
+        opacity: 0.5;
+        transition: opacity 0.3s ease, filter 0.3s ease;
+        object-fit: contain;
+        filter: grayscale(100%);
+        flex-shrink: 0;
+
+        &:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+    }
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.section-heading {
+    color: #06192C;
+    font-size: 48px;
+}
+
+.section-body {
+    color: #3F5871
+}
+
+// ============================================================
+// Footer
+// ============================================================
+footer {
+    background-color: #06192C;
+    color: #fff;
+
+    p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+    }
+}

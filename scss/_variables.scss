@@ -1,0 +1,77 @@
+// ============================================================
+// _variables.scss — Design Tokens & Bootstrap Overrides
+// ============================================================
+
+// Typography
+$font-size-root: 1.0625rem;
+$font-size-base: 1rem;
+$font-family-sans-serif: "Archivo", sans-serif;
+$font-family-base: "Archivo", sans-serif;
+$headings-font-family: "Archivo", sans-serif;
+
+// Brand Colors
+$primary: #06192C;
+$secondary: #fff;
+$accent: #EF3943;
+$primary-color: $primary; // alias for transitions
+
+// Grays
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #7d776c !default;
+$gray-700: #464544 !default;
+$gray-800: #292826 !default;
+$gray-900: #21211f !default;
+$black: #1e1e1e !default;
+
+// Theme colors
+$light: #F1ECDA;
+$body-bg: #F5F5F5;
+$headings-color: $black;
+
+// Border color (fixed: replaced deprecated darken() with a literal value)
+$border-color-dark: #2e2d2c; // equivalent of darken(#464544, 8%)
+
+// Container widths
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 1120px,
+    xl: 1250px,
+    xxl: 1400px) !default;
+
+// Border radius
+$border-radius: 0rem;
+$border-radius-sm: 0rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 0rem;
+$border-radius-xxl: 0rem;
+
+// Heading sizes
+$h1-font-size: $font-size-base * 4;
+$h2-font-size: $font-size-base * 3.2;
+$h3-font-size: $font-size-base * 2.7;
+$h4-font-size: $font-size-base * 2;
+$h5-font-size: $font-size-base * 1.75;
+$h6-font-size: $font-size-base;
+
+// Display sizes
+$display-font-sizes: (
+    1: 5.4rem,
+    2: 5rem,
+    3: 4.5rem,
+    4: 4rem,
+    5: 3.5rem,
+    6: 3rem
+);
+$display-line-height: 1;
+
+// Buttons & inputs
+$input-btn-padding-y: 0.95rem !default;
+$input-btn-padding-x: 1.2rem !default;
+$input-btn-font-size: 0.85rem;
+$btn-font-weight: 500;

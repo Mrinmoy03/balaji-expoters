@@ -1,0 +1,83 @@
+// ============================================================
+// _about.scss — About Section & Stats Cards
+// ============================================================
+
+@use "variables" as *;
+
+// About section wrapper
+.about-section {
+    background-color: #fff;
+}
+
+// ── Stats grid ──
+.stats-row {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    // border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.stat-card {
+    padding: 2rem 1.75rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+    min-height: 310px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    &:hover {
+        background-color: #f9fafb;
+    }
+
+
+
+    // Icon box
+    .stat-icon {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 1.6rem;
+            color: $accent;
+        }
+    }
+
+    // Label text
+    .stat-label {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #3F5871;
+        margin-bottom: 0.35rem;
+        letter-spacing: 0.02em;
+    }
+
+    // Big number
+    .stat-number {
+        font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+        font-weight: 800;
+        color: #102C48;
+        margin-bottom: 0;
+        line-height: 1;
+        font-family: "Archivo", sans-serif;
+
+        .stat-suffix {
+            color: $accent;
+        }
+    }
+}
+
+// Remove right border on last card in each row
+
+.stats-row>.col-md-3:last-child>.stat-card {
+    border-right: none;
+}
+
+// Mobile: add bottom border between rows
+@media (max-width: 767.98px) {
+    .stats-row>.col-6:nth-child(-n+2)>.stat-card {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+}

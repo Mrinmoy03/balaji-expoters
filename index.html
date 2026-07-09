@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Balaji Garments — Delivering quality, consistency and trust with internationally accepted manufacturing standards.">
+    <title>Home | Balaji Garments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Swiper CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- AOS CSS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="Balaji Garments">
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler border-0 shadow-none d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+
+                <!-- Desktop Menu -->
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn-accent" href="contact.html">Enquiry Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Offcanvas Mobile Nav -->
+    <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header px-4 pt-4 pb-3">
+            <a href="index.html" class="offcanvas-brand text-decoration-none">Balaji Garments</a>
+            <button type="button" class="mobile-nav-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body px-4 pt-2 pb-4">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <a class="btn-accent" href="contact.html">Enquiry Now</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section with Swiper Background -->
+        <section class="hero-section pt-5 ">
+            <div class="d-none d-lg-block py-4"></div>
+
+            <!-- Swiper Background -->
+            <div class="hero-swiper-container">
+                <div class="swiper heroSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="hero-slide-bg"
+                                style="background-image: url('https://placehold.co/1920x1080/06192C/FFFFFF?text=Slide+1');">
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="hero-slide-bg"
+                                style="background-image: url('https://placehold.co/1920x1080/071c30/ffffff?text=Slide+2');">
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="hero-slide-bg"
+                                style="background-image: url('https://placehold.co/1920x1080/04101c/ffffff?text=Slide+3');">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination indicators -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- Gradient overlay fading from solid dark navy on left to transparent on right -->
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="container position-relative" style="z-index: 10;">
+                <div class="row">
+                    <div class="col-lg-6 text-white hero-content-col">
+                        <h1 class="display-3 fw-bold mb-4">We Help You Source Product World Wide</h1>
+                        <p class="lead mb-5">Delivering Quality, Consistency, And Trust With Internationally Accepted
+                            Manufacturing Standards, Timely Delivery, And Customized Export Solutions.</p>
+                        <div>
+                            <a href="contact.html" class="btn-accent">Enquiry Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Logos Marquee -->
+        <div class="section client-logos-section">
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <!-- Original Set -->
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+1" alt="Logo 1" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+2" alt="Logo 2" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+3" alt="Logo 3" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+4" alt="Logo 4" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+5" alt="Logo 5" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+6" alt="Logo 6" class="marquee-logo">
+                    <!-- Duplicate Set for seamless infinite scroll -->
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+1" alt="Logo 1" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+2" alt="Logo 2" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+3" alt="Logo 3" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+4" alt="Logo 4" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+5" alt="Logo 5" class="marquee-logo">
+                    <img src="https://placehold.co/150x50/ffffff/a0a0a0?text=Logo+6" alt="Logo 6" class="marquee-logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="section about-section pt-0">
+            <div class="container">
+                <div class="row align-items-start mb-5 pb-lg-3">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                        <p class="section-label">About Us</p>
+                        <h2 class="section-heading">Bridging Indian Craftsmanship with Global Markets</h2>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                        <p class="section-body lh-base mb-5">Founded on the principles of quality and reliability,
+                            Balaji Exports has established itself as a leading merchant exporter from India. Our journey
+                            began with a focus on garment exports, expanding to include FMCG products and a diverse
+                            range of Indian-made goods.</p>
+                        <a href="about.html" class="btn-accent">Know More</a>
+                    </div>
+                </div>
+                <div class="row g-0 stats-row" data-aos="fade-down" data-aos-delay="100">
+                    <div class="col-6 col-md-3">
+                        <div class="stat-card ">
+                            <div class="stat-icon"><i class="ri-ship-fill"></i></div>
+                            <div class="pb-3">
+                                <p class="stat-label">Successful Shipments</p>
+                                <p class="stat-number"><span class="counter" data-target="500">0</span><span
+                                        class="stat-suffix">+</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="ri-user-star-fill"></i></div>
+                            <div class="pb-3">
+                                <p class="stat-label">Years of Experience</p>
+                                <p class="stat-number"><span class="counter" data-target="10">0</span><span
+                                        class="stat-suffix">+</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" ">
+                        <div class=" stat-card">
+                        <div class="stat-icon"><i class="ri-map-pin-2-fill"></i></div>
+                        <div class="pb-3">
+                            <p class="stat-label">Export Destinations</p>
+                            <p class="stat-number"><span class="counter" data-target="25">0</span><span
+                                    class="stat-suffix">+</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ri-award-fill"></i></div>
+
+                        <div class="pb-3">
+                            <p class="stat-label">Quality Inspected</p>
+                            <p class="stat-number"><span class="counter" data-target="100">0</span><span
+                                    class="stat-suffix">%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- service section -->
+        <div class="section service-section" style="background-image: url('images/servicebg.png');">
+            <div class="container text-center">
+                <div class="mb-5 pb-lg-3" data-aos="fade-up">
+                    <p class="section-label d-inline-block text-uppercase mb-2">Our Services</p>
+                    <h2 class="section-heading mb-0">Engineering Excellence<br>cross Industries</h2>
+                </div>
+
+                <div class="row  justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Hover Hint -->
+                        <div class="hover-hint-wrap">
+                            <div class="hover-hint" id="serviceHoverHint">
+                                <span class="hint-cursor">🖱️</span>
+                                Hover cards to explore
+                                <span class="hint-dot"></span>
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <!-- Card 1 -->
+                            <div class=" col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                <div class="service-card text-start">
+                                    <div class="card-hover-overlay"
+                                        style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80');">
+                                    </div>
+                                    <div class="service-icon">
+                                        <i class="ri-t-shirt-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="service-title">Garment Exports</h3>
+                                        <p class="service-desc">Our primary expertise lies in exporting high-quality
+                                            garments, showcasing the best of Indian textile craftsmanship.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="service-card text-start">
+                                    <div class="card-hover-overlay"
+                                        style="background-image: url('https://images.unsplash.com/photo-1523471826770-c437b4636fe6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                                    </div>
+                                    <div class="service-icon">
+                                        <i class="ri-box-3-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="service-title">Towels</h3>
+                                        <p class="service-desc">We offer a premium range of towels crafted for diverse
+                                            global hospitality retail and household needs. </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- collection section -->
+        <div class="section collection-section">
+            <div class="container">
+                <!-- Heading Row -->
+                <div class="row align-items-end justify-content-between mb-5 pb-lg-3" data-aos="fade-up">
+                    <div class="col-md-6">
+                        <p class="section-label">Our Collections</p>
+                        <h2 class="section-heading mb-0">Seven categories, one trusted partner.</h2>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="products.html" class="btn-accent">See All Products</a>
+                    </div>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <a href="products.html?category=towels" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Towel collection</span>
+                                <img src="https://placehold.co/600x750/06192c/ffffff?text=Towel+Collection"
+                                    alt="Cotton Terry Towels">
+                                <div class="card-btn">
+                                    <span>See the Product</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Cotton Terry Towels</h3>
+                            <p class="section-body card-desc">100% Cotton Terry Towels Crafted For High Absorbency And
+                                Long-Lasting Softness.</p>
+                        </a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="products.html?category=garments" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Garments Collection</span>
+                                <img src="https://placehold.co/600x750/071c30/ffffff?text=Garments+Collection"
+                                    alt="Premium Sweat-Shirt">
+                                <div class="card-btn">
+                                    <span>See the Product</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Premium Sweat-Shirt</h3>
+                            <p class="section-body card-desc">100% Cotton Premium For High Absorbency And Long-Lasting
+                                Soft Garments.</p>
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <a href="products.html?category=towels" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Towel collection</span>
+                                <img src="https://placehold.co/600x750/04101c/ffffff?text=Hotel+Towels"
+                                    alt="Hotel Towels">
+                                <div class="card-btn">
+                                    <span>See the Product</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Hotel Towels</h3>
+                            <p class="section-body card-desc">Premium White Hotel Towels At 550 GSM — Trusted By
+                                Hospitality Importers Worldwide.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- signature section -->
+        <div class="section signature-section"
+            style="background-image: url('https://placehold.co/1920x1080/06192C/FFFFFF?text=Signature+Background');">
+            <div class="container py-5">
+                <div class="row align-items-start py-5">
+                    <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5" data-aos="fade-up">
+                        <div class="section-label-pill">Our Signature</div>
+                        <h2 class="display-5 fw-medium mb-4">Efficient Process Designed For Lasting Results</h2>
+                        <p class="fs-6 text-white-50 mb-5">Founded on the principles of quality and reliability, Balaji
+                            Exports has established itself as a leading merchant exporter from India. Our journey began
+                            with a focus on garment exports, expanding to include FMCG products and a diverse range of
+                            Indian-made goods.</p>
+                        <a href="about.html" class="btn-accent">Explore Facility</a>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+                        <div class="video-frame-wrapper">
+                            <div class="video-container">
+                                <img src="https://placehold.co/570x370/071c30/ffffff?text=Video+Thumbnail"
+                                    alt="Factory Video">
+                                <div class="play-btn">
+                                    <i class="ri-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- why balaji section -->
+        <div class="section why-balaji-section">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6 mb-5" data-aos="fade-up">
+                        <p class="section-label d-inline-block mb-2">Why Balaji</p>
+                        <h2 class="section-heading mb-4">Every buyer deserves an office in India.</h2>
+                    </div>
+
+                </div>
+                <div class="row g-4">
+                    <!-- Hover Hint -->
+                    <div class="col-12">
+                        <div class="hover-hint-wrap">
+                            <div class="hover-hint" id="whyHoverHint">
+                                <span class="hint-cursor">🖱️</span>
+                                Hover cards to explore
+                                <span class="hint-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="why-card mb-4">
+                            <div class="card-hover-overlay"
+                                style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80');">
+                            </div>
+                            <div class="why-icon">
+                                <i class="ri-shield-check-fill"></i>
+                            </div>
+                            <div>
+                                <h3 class="why-title">100+ Manufacturers</h3>
+                                <p class="why-desc">Deep Supplier Network — No Dependency On A Single Factory.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="why-card">
+                            <div class="card-hover-overlay"
+                                style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80');">
+                            </div>
+                            <div class="why-icon">
+                                <i class="ri-ship-fill"></i>
+                            </div>
+                            <div>
+                                <h3 class="why-title">End-To-End Execution</h3>
+                                <p class="why-desc">Sourcing, Production, Documentation, Port And Shipping
+                                    Handled.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+
+                    </div>
+                    <div class="col-lg-4 offset-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="why-card mb-4">
+                            <div class="card-hover-overlay"
+                                style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80');">
+                            </div>
+                            <div class="why-icon">
+                                <i class="ri-vip-diamond-fill"></i>
+                            </div>
+                            <div>
+                                <h3 class="why-title">Strong Quality Control</h3>
+                                <p class="why-desc">Inspection, Sample Approvals, And Lab Testing At Every
+                                    Stage.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="why-card">
+                            <div class="card-hover-overlay"
+                                style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80');">
+                            </div>
+                            <div class="why-icon">
+                                <i class="ri-global-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="why-title">Reliable Global Supply</h3>
+                                <p class="why-desc">Consistent Timelines And Buyer Satisfaction Across GCC &
+                                    Africa.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- testimonial -->
+
+        <!-- testimonial section -->
+        <div class="section testimonials-section">
+            <div class="container">
+                <!-- Header Row -->
+                <div class="row align-items-center mb-5 pb-lg-3">
+                    <!-- Left: Stat -->
+                    <div class="col-lg-4 mb-4 mb-lg-0 testimonials-stat" data-aos="fade-up">
+                        <p class="stat-big-number">250K<span class="stat-plus">+</span></p>
+                        <div class="stat-trust-row">
+                            <div class="trust-avatars">
+                                <div class="trust-avatar" style="background-color:#9aa5b0;"></div>
+                                <div class="trust-avatar" style="background-color:#5c6e7e;"></div>
+                            </div>
+                            <span class="trust-label">Trusted By Industry Leaders</span>
+                        </div>
+                    </div>
+                    <!-- Right: Label + Heading -->
+                    <div class="col-lg-5 offset-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <p class="section-label mb-2">Testimonial</p>
+                        <h2 class="section-heading mb-0">What Our Partners Say About Balaji</h2>
+                    </div>
+                </div>
+
+                <!-- Swiper Cards -->
+                <div class="testimonials-swiper-wrapper">
+                    <div class="swiper testimonial-swiper">
+                        <div class="swiper-wrapper">
+
+                            <!-- Card 1 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div>
+                                        <div class="testimonial-stars">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                        <p class="testimonial-quote">“Working with Balaji gave our team a stronger
+                                            foundation for growth, engagement, and brand communication.”</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"></div>
+                                        <div class="author-info">
+                                            <p class="author-name">Rahul Mehata</p>
+                                            <p class="author-title">CEO Of Kingdom Advisors</p>
+                                        </div>
+                                    </div>
+                                    <span class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div>
+                                        <div class="testimonial-stars">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                        <p class="testimonial-quote">“The quality of their garments exceeded
+                                            expectations. Delivery was on time and the documentation was flawless.”</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"></div>
+                                        <div class="author-info">
+                                            <p class="author-name">Ahmed Al-Rashid</p>
+                                            <p class="author-title">Import Director, GCC Trade Co.</p>
+                                        </div>
+                                    </div>
+                                    <span class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div>
+                                        <div class="testimonial-stars">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-half-fill"></i>
+                                        </div>
+                                        <p class="testimonial-quote">“Reliable supplier with excellent quality control.
+                                            They ensured every shipment met our standards before dispatch.”</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"></div>
+                                        <div class="author-info">
+                                            <p class="author-name">Sarah Williams</p>
+                                            <p class="author-title">Procurement Head, Global Retail Ltd.</p>
+                                        </div>
+                                    </div>
+                                    <span class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></span>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div>
+                                        <div class="testimonial-stars">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                        <p class="testimonial-quote">“Balaji's team handled our custom sourcing with
+                                            precision. From sample to final shipment — completely seamless.”</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"></div>
+                                        <div class="author-info">
+                                            <p class="author-name">James Okonkwo</p>
+                                            <p class="author-title">MD, West Africa Imports</p>
+                                        </div>
+                                    </div>
+                                    <span class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h2 class="cta-heading">Build Better Customer<br>Relationships Today.</h2>
+                </div>
+                <div class="col-lg-5 offset-lg-1 cta-text-wrapper" data-aos="fade-up" data-aos-delay="150">
+                    <p class="cta-text">Helping Brands Communicate More Clearly, Connect More Consistently, And Grow
+                        With Confidence.</p>
+                    <div>
+                        <a href="contact.html" class="btn-accent">Let's Work Together</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Wrapper -->
+    <footer class="main-footer-wrap">
+        <!-- Footer Content -->
+        <div class="main-footer py-0">
+            <div class="container">
+                <div class="row justify-content-between py-5 g-4">
+                    <!-- Brand info -->
+                    <div class="col-lg-4  mb-4 mb-lg-0" data-aos="fade-up">
+                        <h3 class="footer-brand">Balaji Garments</h3>
+                        <p class="footer-desc">Founded On The Principles Of Quality And Reliability, Balaji Exports Has
+                            Established Itself As A Leading Merchant Exporter From India.</p>
+                        <div class="footer-socials pt-5">
+                            <a href="https://instagram.com" target="_blank" rel="noopener"><i
+                                    class="ri-instagram-line"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://facebook.com" target="_blank" rel="noopener"><i
+                                    class="ri-facebook-fill"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://youtube.com" target="_blank" rel="noopener"><i
+                                    class="ri-youtube-fill"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://x.com" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="row g-4">
+                            <div class=" col-lg-6 mb-4 mb-lg-0">
+                                <h3 class="footer-title">Navigation</h3>
+                                <ul class="footer-links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Product</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Utility Page -->
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <h3 class="footer-title">Utility Page</h3>
+                                <ul class="footer-links">
+                                    <li><a href="privacy.html">Privacy Policy</a></li>
+                                    <li><a href="license.html">Licence</a></li>
+                                    <li><a href="style-guide.html">Style Guide</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom (Copyright & Watermark) -->
+        <div class="footer-bottom text-center pb-5 mb-5">
+            <div class="container">
+                <p class="copyright-text">Copyright &copy; 2026 &ndash; Balaji Garments &ndash; All Rights Reserved</p>
+            </div>
+            <!-- Huge Watermark text -->
+            <div class="footer-watermark">Balaji Garments</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS JS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+// ============================================================
+// _signature.scss — Signature Section & Video Card
+// ============================================================
+
+@use "variables" as *;
+
+.signature-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    overflow: hidden;
+
+    // Dark overlay to ensure text contrast
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(6, 25, 44, 0.9) 0%, rgba(6, 25, 44, 0.8) 50%, rgba(6, 25, 44, 0.75) 100%);
+        z-index: 1;
+    }
+
+    // Grid content wrapper
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+// ── Translucent Section Label Pill ──
+.section-label-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 1.5px;
+        background-color: #fff;
+        flex-shrink: 0;
+    }
+}
+
+// ── Glassmorphism Video Frame ──
+.video-frame-wrapper {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #06192C;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+        transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.03);
+    }
+}
+
+// Play Button overlay
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 76px;
+    height: 76px;
+    background-color: $accent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2.2rem;
+    box-shadow: 0 12px 28px rgba(239, 57, 67, 0.45);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background-color 0.3s ease;
+    z-index: 4;
+
+    i {
+        margin-left: 4px; // Align play icon visually
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        background-color: darken($accent, 5%);
+        box-shadow: 0 15px 32px rgba(239, 57, 67, 0.55);
+
+        i {
+            transform: scale(1.05);
+        }
+    }
+}

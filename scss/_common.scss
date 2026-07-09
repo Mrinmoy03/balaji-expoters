@@ -1,0 +1,249 @@
+// _common.scss — Shared/reusable component styles
+
+// ============================================================
+// Button — Accent (Red pill button with white square dot)
+// Used globally across the site
+// ============================================================
+.btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: #EF3943;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: 2px solid #EF3943;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    white-space: nowrap;
+
+    // Small white square dot after button text
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin-bottom: 2px;
+        border-radius: 1.5px;
+        background-color: #fff;
+        flex-shrink: 0;
+        transition: transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: darken(#EF3943, 8%);
+        border-color: darken(#EF3943, 8%);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(239, 57, 67, 0.35);
+
+        &::after {
+            transform: translateX(3px);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(239, 57, 67, 0.3);
+    }
+}
+
+// Outline variant
+.btn-accent-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: transparent;
+    color: #EF3943;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: 2px solid #EF3943;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    white-space: nowrap;
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 1.5px;
+        background-color: #EF3943;
+        flex-shrink: 0;
+        transition: transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: #EF3943;
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(239, 57, 67, 0.35);
+
+        &::after {
+            background-color: #fff;
+            transform: translateX(3px);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(239, 57, 67, 0.3);
+    }
+}
+
+
+.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @media (max-width: 768px) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+}
+
+.section-label {
+    color: #435E79;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin-right: 5px;
+        margin-bottom: 2px;
+        border-radius: 1.5px;
+        background-color: #EF3943;
+        flex-shrink: 0;
+
+    }
+}
+
+
+.section-heading {
+    color: #06192C;
+    font-size: 48px;
+}
+
+.section-body {
+    color: #3F5871
+}
+
+// ── Hover Hint Tooltip ────────────────────────────────────────
+@keyframes hintBounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-16px) scale(0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(4px) scale(1.03);
+    }
+
+    80% {
+        transform: translateY(-3px) scale(0.99);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hintFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+        pointer-events: none;
+    }
+}
+
+@keyframes cursorWave {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+.hover-hint-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+    pointer-events: none;
+    position: relative;
+    z-index: 10;
+}
+
+.hover-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1.2rem 0.55rem 0.85rem;
+    background: #06192C;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 50px;
+    box-shadow: 0 8px 28px rgba(6, 25, 44, 0.22), 0 2px 8px rgba(6, 25, 44, 0.14);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+
+    .hint-cursor {
+        font-size: 1rem;
+        display: inline-block;
+        animation: cursorWave 1.4s ease-in-out infinite;
+        transform-origin: bottom center;
+    }
+
+    .hint-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background-color: #EF3943;
+        flex-shrink: 0;
+    }
+
+    // Visible state — triggered by JS
+    &.is-visible {
+        animation: hintBounceIn 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    // Dismiss state
+    &.is-hiding {
+        animation: hintFadeOut 0.4s ease forwards;
+    }
+}

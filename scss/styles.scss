@@ -1,0 +1,23 @@
+// ============================================================
+// styles.scss — Main Stylesheet Entry Point
+// ============================================================
+
+// 1. Variables (must come before Bootstrap so overrides apply)
+@use "variables" as *;
+
+// 2. Bootstrap 5
+@use "../../node_modules/bootstrap/scss/bootstrap";
+
+// 3. Partials
+@use "global";
+@use "common";
+@use "about";
+@use "services";
+@use "collections";
+@use "signature";
+@use "why-balaji";
+@use "testimonials";
+@use "cta-footer";
+
+// 4. Vendor CSS
+@import "../../node_modules/swiper/swiper-bundle.min.css";
