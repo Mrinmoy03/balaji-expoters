@@ -19,6 +19,12 @@
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- intl-tel-input CSS (3rd Party Country/Phone Library) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/css/intlTelInput.css">
+
+    <!-- Choices.js CSS (3rd Party Searchable Dropdown Library) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -145,8 +151,8 @@
                         </div>
                         <h2 class="cat-title">Cotton Terry Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -315,8 +321,8 @@
                         </div>
                         <h2 class="cat-title">Cotton &amp; Polyester Mixed Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -466,8 +472,8 @@
                         </div>
                         <h2 class="cat-title">Multi-Stripe Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
                 <div class="row">
@@ -614,8 +620,8 @@
                         </div>
                         <h2 class="cat-title">Kitchen Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -675,8 +681,8 @@
                         </div>
                         <h2 class="cat-title">Hotel Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -754,8 +760,8 @@
                         </div>
                         <h2 class="cat-title">Beach Towels</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -827,8 +833,8 @@
                         </div>
                         <h2 class="cat-title">Garments Collection</h2>
                     </div>
-                    <a href="#" class="cat-view-all">
-                        Enquire Now <i class="ri-arrow-right-line"></i>
+                    <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Enquirey Now <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -1019,6 +1025,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- intl-tel-input JS (3rd Party Country/Phone Library) -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/intlTelInput.min.js"></script>
+
+    <!-- Choices.js JS (3rd Party Searchable Dropdown Library) -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
     <!-- Scripts -->
     <script src="js/main.js"></script>
 
@@ -1053,6 +1066,333 @@
                 btn.classList.toggle('is-active', btn.dataset.target === current);
             });
         }, { passive: true });
+
+        // Enquiry Modal Form Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneInputEl = document.querySelector("#modal-phone");
+            const countrySelectEl = document.querySelector("#modal-country");
+
+            // Initialize intl-tel-input
+            let iti = null;
+            if (phoneInputEl) {
+                iti = window.intlTelInput(phoneInputEl, {
+                    initialCountry: "auto",
+                    geoIpLookup: callback => {
+                        fetch("https://ipapi.co/json")
+                            .then(res => res.json())
+                            .then(data => callback(data.country_code))
+                            .catch(() => callback("in")); // Fallback to India
+                    },
+                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/utils.js"
+                });
+            }
+
+            // Country list for Choices.js dropdown populating
+            const countryList = [
+                { name: "Afghanistan", code: "AF" },
+                { name: "Albania", code: "AL" },
+                { name: "Algeria", code: "DZ" },
+                { name: "Andorra", code: "AD" },
+                { name: "Angola", code: "AO" },
+                { name: "Antigua and Barbuda", code: "AG" },
+                { name: "Argentina", code: "AR" },
+                { name: "Armenia", code: "AM" },
+                { name: "Australia", code: "AU" },
+                { name: "Austria", code: "AT" },
+                { name: "Azerbaijan", code: "AZ" },
+                { name: "Bahamas", code: "BS" },
+                { name: "Bahrain", code: "BH" },
+                { name: "Bangladesh", code: "BD" },
+                { name: "Barbados", code: "BB" },
+                { name: "Belarus", code: "BY" },
+                { name: "Belgium", code: "BE" },
+                { name: "Belize", code: "BZ" },
+                { name: "Benin", code: "BJ" },
+                { name: "Bhutan", code: "BT" },
+                { name: "Bolivia", code: "BO" },
+                { name: "Bosnia and Herzegovina", code: "BA" },
+                { name: "Botswana", code: "BW" },
+                { name: "Brazil", code: "BR" },
+                { name: "Brunei", code: "BN" },
+                { name: "Bulgaria", code: "BG" },
+                { name: "Burkina Faso", code: "BF" },
+                { name: "Burundi", code: "BI" },
+                { name: "Cabo Verde", code: "CV" },
+                { name: "Cambodia", code: "KH" },
+                { name: "Cameroon", code: "CM" },
+                { name: "Canada", code: "CA" },
+                { name: "Central African Republic", code: "CF" },
+                { name: "Chad", code: "TD" },
+                { name: "Chile", code: "CL" },
+                { name: "China", code: "CN" },
+                { name: "Colombia", code: "CO" },
+                { name: "Comoros", code: "KM" },
+                { name: "Congo (Congo-Brazzaville)", code: "CG" },
+                { name: "Costa Rica", code: "CR" },
+                { name: "Croatia", code: "HR" },
+                { name: "Cuba", code: "CU" },
+                { name: "Cyprus", code: "CY" },
+                { name: "Czechia (Czech Republic)", code: "CZ" },
+                { name: "Denmark", code: "DK" },
+                { name: "Djibouti", code: "DJ" },
+                { name: "Dominica", code: "DM" },
+                { name: "Dominican Republic", code: "DO" },
+                { name: "Ecuador", code: "EC" },
+                { name: "Egypt", code: "EG" },
+                { name: "El Salvador", code: "SV" },
+                { name: "Equatorial Guinea", code: "GQ" },
+                { name: "Eritrea", code: "ER" },
+                { name: "Estonia", code: "EE" },
+                { name: "Eswatini", code: "SZ" },
+                { name: "Ethiopia", code: "ET" },
+                { name: "Fiji", code: "FJ" },
+                { name: "France", code: "FR" },
+                { name: "Gabon", code: "GA" },
+                { name: "Gambia", code: "GM" },
+                { name: "Georgia", code: "GE" },
+                { name: "Germany", code: "DE" },
+                { name: "Ghana", code: "GH" },
+                { name: "Greece", code: "GR" },
+                { name: "Grenada", code: "GD" },
+                { name: "Guatemala", code: "GT" },
+                { name: "Guinea", code: "GN" },
+                { name: "Guinea-Bissau", code: "GW" },
+                { name: "Guyana", code: "GY" },
+                { name: "Haiti", code: "HT" },
+                { name: "Honduras", code: "HN" },
+                { name: "Hungary", code: "HU" },
+                { name: "Iceland", code: "IS" },
+                { name: "India", code: "IN" },
+                { name: "Indonesia", code: "ID" },
+                { name: "Iran", code: "IR" },
+                { name: "Iraq", code: "IQ" },
+                { name: "Ireland", code: "IE" },
+                { name: "Israel", code: "IL" },
+                { name: "Italy", code: "IT" },
+                { name: "Jamaica", code: "JM" },
+                { name: "Japan", code: "JP" },
+                { name: "Jordan", code: "JO" },
+                { name: "Kazakhstan", code: "KZ" },
+                { name: "Kenya", code: "KE" },
+                { name: "Kiribati", code: "KI" },
+                { name: "Kuwait", code: "KW" },
+                { name: "Kyrgyzstan", code: "KG" },
+                { name: "Laos", code: "LA" },
+                { name: "Latvia", code: "LV" },
+                { name: "Lebanon", code: "LB" },
+                { name: "Lesotho", code: "LS" },
+                { name: "Liberia", code: "LR" },
+                { name: "Libya", code: "LY" },
+                { name: "Liechtenstein", code: "LI" },
+                { name: "Lithuania", code: "LT" },
+                { name: "Luxembourg", code: "LU" },
+                { name: "Madagascar", code: "MG" },
+                { name: "Malawi", code: "MW" },
+                { name: "Malaysia", code: "MY" },
+                { name: "Maldives", code: "MV" },
+                { name: "Mali", code: "ML" },
+                { name: "Malta", code: "MT" },
+                { name: "Marshall Islands", code: "MH" },
+                { name: "Mauritania", code: "MR" },
+                { name: "Mauritius", code: "MU" },
+                { name: "Mexico", code: "MX" },
+                { name: "Micronesia", code: "FM" },
+                { name: "Moldova", code: "MD" },
+                { name: "Monaco", code: "MC" },
+                { name: "Mongolia", code: "MN" },
+                { name: "Montenegro", code: "ME" },
+                { name: "Morocco", code: "MA" },
+                { name: "Mozambique", code: "MZ" },
+                { name: "Myanmar (Burma)", code: "MM" },
+                { name: "Namibia", code: "NA" },
+                { name: "Nauru", code: "NR" },
+                { name: "Nepal", code: "NP" },
+                { name: "Netherlands", code: "NL" },
+                { name: "New Zealand", code: "NZ" },
+                { name: "Nicaragua", code: "NI" },
+                { name: "Niger", code: "NE" },
+                { name: "Nigeria", code: "NG" },
+                { name: "North Korea", code: "KP" },
+                { name: "North Macedonia", code: "MK" },
+                { name: "Norway", code: "NO" },
+                { name: "Oman", code: "OM" },
+                { name: "Pakistan", code: "PK" },
+                { name: "Palau", code: "PW" },
+                { name: "Panama", code: "PA" },
+                { name: "Papua New Guinea", code: "PG" },
+                { name: "Paraguay", code: "PY" },
+                { name: "Peru", code: "PE" },
+                { name: "Philippines", code: "PH" },
+                { name: "Poland", code: "PL" },
+                { name: "Portugal", code: "PT" },
+                { name: "Qatar", code: "QA" },
+                { name: "Romania", code: "RO" },
+                { name: "Russia", code: "RU" },
+                { name: "Rwanda", code: "RW" },
+                { name: "Saint Kitts and Nevis", code: "KN" },
+                { name: "Saint Lucia", code: "LC" },
+                { name: "Saint Vincent and the Grenadines", code: "VC" },
+                { name: "Samoa", code: "WS" },
+                { name: "San Marino", code: "SM" },
+                { name: "Sao Tome and Principe", code: "ST" },
+                { name: "Saudi Arabia", code: "SA" },
+                { name: "Senegal", code: "SN" },
+                { name: "Serbia", code: "RS" },
+                { name: "Seychelles", code: "SC" },
+                { name: "Sierra Leone", code: "SL" },
+                { name: "Singapore", code: "SG" },
+                { name: "Slovakia", code: "SK" },
+                { name: "Slovenia", code: "SI" },
+                { name: "Solomon Islands", code: "SB" },
+                { name: "Somalia", code: "SO" },
+                { name: "South Africa", code: "ZA" },
+                { name: "South Korea", code: "KR" },
+                { name: "South Sudan", code: "SS" },
+                { name: "Spain", code: "ES" },
+                { name: "Sri Lanka", code: "LK" },
+                { name: "Sudan", code: "SD" },
+                { name: "Suriname", code: "SR" },
+                { name: "Sweden", code: "SE" },
+                { name: "Switzerland", code: "CH" },
+                { name: "Syria", code: "SY" },
+                { name: "Tajikistan", code: "TJ" },
+                { name: "Tanzania", code: "TZ" },
+                { name: "Thailand", code: "TH" },
+                { name: "Timor-Leste", code: "TL" },
+                { name: "Togo", code: "TG" },
+                { name: "Tonga", code: "TO" },
+                { name: "Trinidad and Tobago", code: "TT" },
+                { name: "Tunisia", code: "TN" },
+                { name: "Turkey", code: "TR" },
+                { name: "Turkmenistan", code: "TM" },
+                { name: "Tuvalu", code: "TV" },
+                { name: "Uganda", code: "UG" },
+                { name: "Ukraine", code: "UA" },
+                { name: "United Arab Emirates", code: "AE" },
+                { name: "United Kingdom", code: "GB" },
+                { name: "United States", code: "US" },
+                { name: "Uruguay", code: "UY" },
+                { name: "Uzbekistan", code: "UZ" },
+                { name: "Vanuatu", code: "VU" },
+                { name: "Venezuela", code: "VE" },
+                { name: "Vietnam", code: "VN" },
+                { name: "Yemen", code: "YE" },
+                { name: "Zambia", code: "ZM" },
+                { name: "Zimbabwe", code: "ZW" }
+            ];
+
+            let choicesInstance = null;
+            if (countrySelectEl) {
+                countryList.forEach(country => {
+                    const opt = document.createElement("option");
+                    opt.value = country.name;
+                    opt.textContent = country.name;
+                    countrySelectEl.appendChild(opt);
+                });
+
+                // Initialize Choices.js
+                choicesInstance = new Choices(countrySelectEl, {
+                    searchEnabled: true,
+                    itemSelectText: '',
+                    shouldSort: false,
+                    placeholder: true,
+                    placeholderValue: "Select your country"
+                });
+            }
+
+            // Sync phone flag with country selector when country changes
+            countrySelectEl?.addEventListener('change', (e) => {
+                const selectedCountryName = e.target.value;
+                const match = countryList.find(c => c.name === selectedCountryName);
+                if (match && iti) {
+                    iti.setCountry(match.code.toLowerCase());
+                }
+            });
+
+            // Sync country selector with phone flag when flag changes
+            phoneInputEl?.addEventListener('countrychange', () => {
+                if (iti && choicesInstance) {
+                    const countryData = iti.getSelectedCountryData();
+                    if (countryData && countryData.iso2) {
+                        const match = countryList.find(c => c.code.toLowerCase() === countryData.iso2.toLowerCase());
+                        if (match) {
+                            choicesInstance.setChoiceByValue(match.name);
+                        }
+                    }
+                }
+            });
+
+            // Map product category section titles to checkbox values
+            const categoryMap = {
+                "Cotton Terry Towels": "Cotton Terry Towels",
+                "Cotton & Polyester Mixed Towels": "Mixed Towels",
+                "Multi-Stripe Towels": "Multi-Stripe Towels",
+                "Kitchen Towels": "Kitchen Towels",
+                "Hotel Towels": "Hotel Towels",
+                "Beach Towels": "Beach Towels",
+                "Garments Collection": "Garments"
+            };
+
+            // Intercept click on Enquirey Now buttons to check the correct checkbox card
+            document.querySelectorAll('.cat-view-all').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const section = btn.closest('.product-cat-section');
+                    if (section) {
+                        const titleEl = section.querySelector('.cat-title');
+                        if (titleEl) {
+                            const catTitle = titleEl.textContent.trim();
+                            const mappedValue = categoryMap[catTitle] || catTitle;
+
+                            // Reset checkboxes
+                            document.querySelectorAll('#modalExportForm input[name="categories"]').forEach(cb => {
+                                cb.checked = false;
+                                const wrapper = cb.closest('.col-sm-6');
+                                if (wrapper) {
+                                    wrapper.style.setProperty('display', 'none', 'important');
+                                }
+                            });
+
+                            // Select the targeted category
+                            const matchCheckbox = Array.from(document.querySelectorAll('#modalExportForm input[name="categories"]'))
+                                .find(cb => cb.value.toLowerCase() === mappedValue.toLowerCase());
+                            if (matchCheckbox) {
+                                matchCheckbox.checked = true;
+                                const wrapper = matchCheckbox.closest('.col-sm-6');
+                                if (wrapper) {
+                                    wrapper.style.setProperty('display', 'block', 'important');
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Submit logic
+            const form = document.getElementById("modalExportForm");
+            form?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const checkedCats = [];
+                document.querySelectorAll('#modalExportForm input[name="categories"]:checked').forEach(cb => {
+                    checkedCats.push(cb.value);
+                });
+
+                if (checkedCats.length === 0) {
+                    alert("Please select at least one product category of interest.");
+                    return;
+                }
+
+                alert("Thank you! Your export enquiry has been received. Our sales desk will get back to you within 24 hours.");
+                form.reset();
+
+                // Close bootstrap modal programmatically
+                const modalEl = document.getElementById('enquiryModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) {
+                    modal.hide();
+                }
+            });
+        });
     </script>
 
     <!-- Floating Brochure Notice Popup -->
@@ -1070,6 +1410,185 @@
                     our products, fabrics, configurations, and sizes, please download our full product brochure.</p>
                 <div class="brochure-popup-status">
                     <i class="ri-time-line"></i> Brochure download links will be available soon
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enquiry Modal -->
+    <div class="modal fade enquiry-modal" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content border-0">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-4 p-md-5 pt-0">
+                    <div class="contact-form-wrapper border-0 shadow-none p-0">
+                        <h3 class="form-title mb-2" id="enquiryModalLabel">Request a Quote</h3>
+                        <p class="form-subtitle mb-4">Complete the fields below to request details, custom specifications, or a product brochure.</p>
+                        
+                        <form action="#" class="contact-form" id="modalExportForm">
+                            <div class="row g-4">
+                                
+                                <!-- Name Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label for="modal-name" class="form-label-custom">Full Name</label>
+                                        <input type="text" id="modal-name" class="form-control-custom" placeholder="e.g. John Doe" required>
+                                    </div>
+                                </div>
+
+                                <!-- Email Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label for="modal-email" class="form-label-custom">Corporate Email</label>
+                                        <input type="email" id="modal-email" class="form-control-custom" placeholder="e.g. name@company.com" required>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Field (using intl-tel-input) -->
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label for="modal-phone" class="form-label-custom">Phone Number</label>
+                                        <input type="tel" id="modal-phone" class="form-control-custom w-100" required>
+                                    </div>
+                                </div>
+
+                                <!-- Country Dropdown -->
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label for="modal-country" class="form-label-custom">Country</label>
+                                        <select id="modal-country" class="form-select-custom" required>
+                                            <option value="" disabled selected>Select your country</option>
+                                            <!-- Populated dynamically via JS -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Customer Details / Business Type -->
+                                <div class="col-12">
+                                    <div class="form-group-custom">
+                                        <label for="modal-businessType" class="form-label-custom">I am a / we are:</label>
+                                        <select id="modal-businessType" class="form-select-custom" required>
+                                            <option value="" disabled selected>Choose business profile...</option>
+                                            <option value="Importer">Merchant Importer / Distributor</option>
+                                            <option value="Wholesaler">Wholesaler / Trader</option>
+                                            <option value="Retailer">Retail Store / E-commerce Brand</option>
+                                            <option value="Hospitality">Hotel / Resort / Institutional Buyer</option>
+                                            <option value="GarmentOEM">Garment Brand / OEM Client</option>
+                                            <option value="Other">Other / General Inquiry</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Categories checkboxes (7 Categories) -->
+                                <div class="col-12">
+                                    <div class="form-group-custom">
+                                        <label class="form-label-custom mb-3">Product Categories of Interest:</label>
+                                        <div class="row g-2">
+                                            
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Cotton Terry Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Cotton Terry Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Mixed Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Mixed Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Multi-Stripe Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Multi-Stripe Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Kitchen Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Kitchen Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Hotel Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Hotel Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Beach Towels" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Beach Towels</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="Garments" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">Garments Collection</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label class="checkbox-card-label">
+                                                    <input type="checkbox" name="categories" value="All Products" class="checkbox-card-input">
+                                                    <span class="checkbox-card-content">
+                                                        <span class="checkbox-card-icon"><i class="ri-check-line"></i></span>
+                                                        <span class="checkbox-card-text">All Products</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Message Field -->
+                                <div class="col-12">
+                                    <div class="form-group-custom">
+                                        <label for="modal-message" class="form-label-custom">Message / Custom Requirements</label>
+                                        <textarea id="modal-message" rows="4" class="form-control-custom" placeholder="Please specify target volume, sizes, custom GSM, or design requirements..." required></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="col-12 mt-4 d-flex justify-content-center">
+                                    <button type="submit" class="btn-accent px-5 py-2.5" style="font-size: 0.95rem;">Send Export Enquiry</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
