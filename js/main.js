@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.site-header');
     if (header) {
         const SCROLL_THRESHOLD = 80;   // px before blur kicks in
-        const HIDE_DELTA       = 6;    // min px moved before hiding/showing
-        let lastScrollY        = window.scrollY;
+        const HIDE_DELTA = 6;    // min px moved before hiding/showing
+        let lastScrollY = window.scrollY;
 
         const onScroll = () => {
             const currentY = window.scrollY;
-            const delta    = currentY - lastScrollY;
+            const delta = currentY - lastScrollY;
 
             // Toggle blur/glass background
             header.classList.toggle('is-scrolled', currentY > SCROLL_THRESHOLD);
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
             direction: 'vertical',
             loop: true,
             autoplay: {
-                delay: 4500,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            speed: 1000,
+            speed: 1200, // Smooth transition speed
         });
     }
 
@@ -211,16 +211,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timelineWrapper && axisFill) {
         const updateAxisFill = () => {
             const isMobile = window.innerWidth < 992;
-            
+
             if (isMobile) {
                 // Mobile: vertical scroll progress based on section viewport position
                 const rect = timelineWrapper.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                
+
                 // Calculate percentage based on how much of the section has entered/passed the viewport
                 const totalHeight = rect.height;
                 const scrolled = windowHeight - rect.top - 120; // 120px offset for better visual alignment
-                
+
                 let fillPercent = 0;
                 if (scrolled >= 0) {
                     fillPercent = Math.min(100, (scrolled / (totalHeight + 50)) * 100);
@@ -233,13 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const scrollWidth = timelineWrapper.scrollWidth;
                 const clientWidth = timelineWrapper.clientWidth;
                 const maxScroll = scrollWidth - clientWidth;
-                
+
                 const fillPercent = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
                 axisFill.style.width = `${fillPercent}%`;
                 axisFill.style.height = '100%';
             }
         };
-        
+
         window.addEventListener('scroll', updateAxisFill, { passive: true });
         timelineWrapper.addEventListener('scroll', updateAxisFill, { passive: true });
         window.addEventListener('resize', updateAxisFill, { passive: true });
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (table) {
                     const isOpen = table.classList.toggle('is-open');
                     btn.classList.toggle('is-active', isOpen);
-                    
+
                     // Update text label dynamically
                     const labelSpan = btn.querySelector('span');
                     if (labelSpan) {
