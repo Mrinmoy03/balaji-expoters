@@ -246,4 +246,43 @@ document.addEventListener('DOMContentLoaded', () => {
         // Run once initially to capture initial offset
         updateAxisFill();
     }
+
+    // Toggle product specifications card-specs-table inside collection-card
+    const specToggles = document.querySelectorAll('.btn-specs-toggle');
+    specToggles.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Stops navigation on card anchor click
+
+            const card = btn.closest('.collection-card');
+            if (card) {
+                const table = card.querySelector('.card-specs-table');
+                if (table) {
+                    const isOpen = table.classList.toggle('is-open');
+                    btn.classList.toggle('is-active', isOpen);
+                    
+                    // Update text label dynamically
+                    const labelSpan = btn.querySelector('span');
+                    if (labelSpan) {
+                        labelSpan.textContent = isOpen ? 'Hide Specifications' : 'Show Specifications';
+                    }
+                }
+            }
+        });
+    });
+
+    // Floating Brochure Popup logic (shows on each page load)
+    setTimeout(() => {
+        const popup = document.getElementById('brochurePopup');
+        if (popup) {
+            popup.classList.add('is-visible');
+        }
+    }, 1500);
+
+    document.getElementById('closeBrochurePopup')?.addEventListener('click', () => {
+        const popup = document.getElementById('brochurePopup');
+        if (popup) {
+            popup.classList.remove('is-visible');
+        }
+    });
 });
