@@ -15,6 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
         offset: 100,
     });
 
+    // ── Sticky Navbar: blur + hide/show on scroll ────────────
+    const header = document.querySelector('.site-header');
+    if (header) {
+        const SCROLL_THRESHOLD = 80;   // px before blur kicks in
+        const HIDE_DELTA       = 6;    // min px moved before hiding/showing
+        let lastScrollY        = window.scrollY;
+
+        const onScroll = () => {
+            const currentY = window.scrollY;
+            const delta    = currentY - lastScrollY;
+
+            // Toggle blur/glass background
+            header.classList.toggle('is-scrolled', currentY > SCROLL_THRESHOLD);
+
+            // Only react if movement is meaningful (avoids micro-jitter)
+            if (Math.abs(delta) > HIDE_DELTA) {
+                if (delta > 0 && currentY > SCROLL_THRESHOLD) {
+                    // Scrolling DOWN — hide navbar
+                    header.classList.add('is-hidden');
+                    document.body.classList.add('nav-is-hidden');
+                } else {
+                    // Scrolling UP — reveal navbar
+                    header.classList.remove('is-hidden');
+                    document.body.classList.remove('nav-is-hidden');
+                }
+                lastScrollY = currentY;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
     // ── Hover Hint Tooltips ──────────────────────────────────
     const setupHoverHint = (hintId, sectionSelector, cardSelector) => {
         const hint = document.getElementById(hintId);
@@ -58,38 +90,77 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHoverHint('serviceHoverHint', '.service-section', '.service-card');
     setupHoverHint('whyHoverHint', '.why-balaji-section', '.why-card');
 
-    // Initialize Hero Swiper
-    const heroSwiper = new Swiper('.heroSwiper', {
-        direction: 'vertical',
-        loop: true,
-        autoplay: {
-            delay: 4500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        speed: 1000,
-    });
+    // Initialize Hero Swiper (index page only)
+    if (document.querySelector('.heroSwiper')) {
+        new Swiper('.heroSwiper', {
+            direction: 'vertical',
+            loop: true,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            speed: 1000,
+        });
+    }
 
-    // Initialize Testimonial Swiper
-    const testimonialSwiper = new Swiper('.testimonial-swiper', {
-        loop: true,
-        speed: 700,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-        },
-        slidesPerView: 1.1,
-        spaceBetween: 20,
-        breakpoints: {
-            576: { slidesPerView: 1.3, spaceBetween: 20 },
-            768: { slidesPerView: 2.1, spaceBetween: 24 },
-            1200: { slidesPerView: 2.3, spaceBetween: 28 },
-        },
-    });
+    // Initialize Testimonial Swiper (index page only)
+    if (document.querySelector('.testimonial-swiper')) {
+        new Swiper('.testimonial-swiper', {
+            loop: true,
+            speed: 700,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            slidesPerView: 1.1,
+            spaceBetween: 20,
+            breakpoints: {
+                576: { slidesPerView: 1.3, spaceBetween: 20 },
+                768: { slidesPerView: 2.1, spaceBetween: 24 },
+                1200: { slidesPerView: 2.3, spaceBetween: 28 },
+            },
+        });
+    }
+
+    // Initialize Core Services Swiper (services page only)
+    if (document.querySelector('.services-swiper')) {
+        const servicesSwiper = new Swiper('.services-swiper', {
+            loop: true,
+            speed: 800,
+            spaceBetween: 30,
+            slidesPerView: 1.1,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                576: { slidesPerView: 1.5, spaceBetween: 24 },
+                768: { slidesPerView: 2.2, spaceBetween: 28 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+            },
+        });
+
+        // Robust manual hover pause/resume for swiper
+        const serviceSlides = document.querySelectorAll('.services-swiper .swiper-slide');
+        serviceSlides.forEach(slide => {
+            slide.addEventListener('mouseenter', () => {
+                servicesSwiper.autoplay.stop();
+            });
+            slide.addEventListener('mouseleave', () => {
+                servicesSwiper.autoplay.start();
+            });
+        });
+    }
 
     // ── Stat Number Counter Animation ──
     const counters = document.querySelectorAll('.counter');
@@ -117,20 +188,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Trigger animation when the about section wrapper comes into view
-    const aboutSection = document.querySelector('.about-section');
-    if (aboutSection && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries, observer) => {
+    // Trigger animation when any stats-row comes into view (works on all pages)
+    const statsRow = document.querySelector('.stats-row');
+    if (statsRow && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateCounters();
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        observer.observe(aboutSection);
-    } else {
-        // Fallback for older browsers or missing nodes
+        }, { threshold: 0.15 });
+        observer.observe(statsRow);
+    } else if (counters.length) {
+        // Fallback: run immediately if IntersectionObserver unavailable
         animateCounters();
+    }
+
+    // Dynamic timeline axis fill on scroll (horizontal on desktop, vertical on mobile)
+    const timelineWrapper = document.querySelector('.production-timeline-wrapper');
+    const axisFill = document.querySelector('.timeline-axis-fill');
+    if (timelineWrapper && axisFill) {
+        const updateAxisFill = () => {
+            const isMobile = window.innerWidth < 992;
+            
+            if (isMobile) {
+                // Mobile: vertical scroll progress based on section viewport position
+                const rect = timelineWrapper.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calculate percentage based on how much of the section has entered/passed the viewport
+                const totalHeight = rect.height;
+                const scrolled = windowHeight - rect.top - 120; // 120px offset for better visual alignment
+                
+                let fillPercent = 0;
+                if (scrolled >= 0) {
+                    fillPercent = Math.min(100, (scrolled / (totalHeight + 50)) * 100);
+                }
+                axisFill.style.height = `${fillPercent}%`;
+                axisFill.style.width = '100%';
+            } else {
+                // Desktop: horizontal scroll progress
+                const scrollLeft = timelineWrapper.scrollLeft;
+                const scrollWidth = timelineWrapper.scrollWidth;
+                const clientWidth = timelineWrapper.clientWidth;
+                const maxScroll = scrollWidth - clientWidth;
+                
+                const fillPercent = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+                axisFill.style.width = `${fillPercent}%`;
+                axisFill.style.height = '100%';
+            }
+        };
+        
+        window.addEventListener('scroll', updateAxisFill, { passive: true });
+        timelineWrapper.addEventListener('scroll', updateAxisFill, { passive: true });
+        window.addEventListener('resize', updateAxisFill, { passive: true });
+        // Run once initially to capture initial offset
+        updateAxisFill();
     }
 });

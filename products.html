@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Balaji Garments' full product range — Cotton Terry Towels, Hotel Towels, Beach Towels, Kitchen Towels, Multi-Stripe Towels, Mixed Towels, and Garments Collection. Premium Indian exports.">
+    <title>Products | Balaji Garments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="Balaji Garments">
+                </a>
+                <button class="navbar-toggler border-0 shadow-none d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn-accent" href="contact.html">Enquiry Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Offcanvas Mobile Nav -->
+    <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header px-4 pt-4 pb-3">
+            <a href="index.html" class="offcanvas-brand text-decoration-none">Balaji Garments</a>
+            <button type="button" class="mobile-nav-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body px-4 pt-2 pb-4">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <a class="btn-accent" href="contact.html">Enquiry Now</a>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- ── Page Hero ──────────────────────────────────────── -->
+        <section class="page-hero product-page-hero">
+
+            <div class="page-hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1523271926866-3e7a3a6ef34b?w=1400&q=85');"></div>
+            <div class="page-hero-overlay"></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 hero-content">
+
+                        <div class="page-breadcrumb" data-aos="fade-up">
+                            <a href="index.html">Home</a>
+                            <span class="sep">/</span>
+                            <span class="current">Products</span>
+                        </div>
+
+                        <h1 class="page-hero-title" data-aos="fade-up" data-aos-delay="80">
+                            Seven Categories,<br>One Trusted Partner.
+                        </h1>
+
+                        <!-- Button + Subtitle side by side -->
+                        <div class="hero-bottom-row" data-aos="fade-up" data-aos-delay="180">
+                            <a href="contact.html" class="btn-accent flex-shrink-0">Request a Catalogue</a>
+                            <p class="page-hero-subtitle">
+                                From premium cotton towels and hotel linens to custom garments — explore our
+                                complete export-ready product range sourced from India's finest manufacturers.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ── Sticky Category Filter ─────────────────────────── -->
+        <div class="product-filter-bar">
+            <div class="container">
+                <ul class="filter-list mx-auto" id="filterList">
+                    <li><button class="filter-btn is-active" data-target="cat-cotton-terry">Cotton Terry</button></li>
+                    <li><button class="filter-btn" data-target="cat-mixed">Mixed Towels</button></li>
+                    <li><button class="filter-btn" data-target="cat-stripe">Multi-Stripe</button></li>
+                    <li><button class="filter-btn" data-target="cat-kitchen">Kitchen Towels</button></li>
+                    <li><button class="filter-btn" data-target="cat-hotel">Hotel Towels</button></li>
+                    <li><button class="filter-btn" data-target="cat-beach">Beach Towels</button></li>
+                    <li><button class="filter-btn" data-target="cat-garments">Garments</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 1 — Cotton Terry Towels                    -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-cotton-terry">
+            <div class="container">
+
+                <!-- Category Header -->
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">01</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Cotton Terry Towels</h2>
+                    </div>
+                    <a href="category-cotton-terry.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- 3 Product Cards -->
+                <div class="row">
+
+                    <!-- Card 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-cotton-terry.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Cotton Terry</span>
+                                <img src="https://placehold.co/600x750/06192C/ffffff?text=Bath+Towel"
+                                    alt="Bath Towel — Cotton Terry">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Bath Towel</h3>
+                            <p class="section-body card-desc">100% cotton terry bath towel with high absorbency and
+                                long-lasting softness. Perfect for hospitality and retail.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>70×140 cm</span></span>
+                                <span class="card-spec-badge">Weight <span>400 g</span></span>
+                                <span class="card-spec-badge">GSM <span>410</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-cotton-terry.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Cotton Terry</span>
+                                <img src="https://placehold.co/600x750/071c30/ffffff?text=Hand+Towel"
+                                    alt="Hand Towel — Cotton Terry">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Hand Towel</h3>
+                            <p class="section-body card-desc">Soft and durable hand towels crafted from premium cotton
+                                terry, ideal for bathrooms, hotels, and spas.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×90 cm</span></span>
+                                <span class="card-spec-badge">Weight <span>200 g</span></span>
+                                <span class="card-spec-badge">GSM <span>440</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-cotton-terry.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Cotton Terry</span>
+                                <img src="https://placehold.co/600x750/04101c/ffffff?text=Face+Towel"
+                                    alt="Face Towel — Cotton Terry">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Face Towel</h3>
+                            <p class="section-body card-desc">Ultra-soft face towels in 100% cotton terry, gentle on
+                                skin and built for repeated washing in commercial use.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>30×30 cm</span></span>
+                                <span class="card-spec-badge">Weight <span>60 g</span></span>
+                                <span class="card-spec-badge">GSM <span>450</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 2 — Cotton & Polyester Mixed Towels        -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-mixed">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">02</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Cotton &amp; Polyester Mixed Towels</h2>
+                    </div>
+                    <a href="category-mixed-towels.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-mixed-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Mixed Blend</span>
+                                <img src="https://placehold.co/600x750/1a3a5c/ffffff?text=Mixed+Bath+Towel"
+                                    alt="Mixed Bath Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Mixed Bath Towel</h3>
+                            <p class="section-body card-desc">Cotton-polyester blend bath towels offering quick-dry
+                                properties with soft feel — ideal for gym and sports use.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>70×140 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>380</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-mixed-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Mixed Blend</span>
+                                <img src="https://placehold.co/600x750/0d2b47/ffffff?text=Mixed+Hand+Towel"
+                                    alt="Mixed Hand Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Mixed Hand Towel</h3>
+                            <p class="section-body card-desc">Lightweight and durable hand towels in a 60/40
+                                cotton-polyester blend, suitable for high-turnover commercial settings.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×90 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>360</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-mixed-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Mixed Blend</span>
+                                <img src="https://placehold.co/600x750/152d45/ffffff?text=Sports+Towel"
+                                    alt="Sports Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Sports Towel</h3>
+                            <p class="section-body card-desc">Compact quick-dry sports towel in polyester-cotton blend,
+                                perfect for gym kits, wellness centers, and retail bundles.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>40×80 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>320</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 3 — Multi-Stripe Towels                   -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-stripe">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">03</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Multi-Stripe Towels</h2>
+                    </div>
+                    <a href="category-stripe-towels.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-stripe-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Multi-Stripe</span>
+                                <img src="https://placehold.co/600x750/2c1810/ffffff?text=Vivo+Bath+Towel"
+                                    alt="VIVO Bath Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">VIVO — Bath Towel</h3>
+                            <p class="section-body card-desc">Multi-stripe cotton bath towel with vibrant colour bands —
+                                popular in retail, beach resorts, and hospitality.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>70×140 cm</span></span>
+                                <span class="card-spec-badge">Weight <span>400 g</span></span>
+                                <span class="card-spec-badge">GSM <span>410</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-stripe-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Multi-Stripe</span>
+                                <img src="https://placehold.co/600x750/1e1a30/ffffff?text=Vivo+Hand+Towel"
+                                    alt="VIVO Hand Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">VIVO — Hand Towel</h3>
+                            <p class="section-body card-desc">Compact multi-stripe hand towel, colour-fast and durable —
+                                available in custom stripe patterns for private label.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×90 cm</span></span>
+                                <span class="card-spec-badge">Weight <span>200 g</span></span>
+                                <span class="card-spec-badge">GSM <span>440</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-stripe-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Multi-Stripe</span>
+                                <img src="https://placehold.co/600x750/26180f/ffffff?text=Custom+Stripe+Towel"
+                                    alt="Custom Stripe Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Custom Stripe — Bath Towel</h3>
+                            <p class="section-body card-desc">Fully customisable stripe pattern bath towel — choose your
+                                colours, GSM, and branding for OEM orders.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>Custom</span></span>
+                                <span class="card-spec-badge">GSM <span>400–550</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 4 — Kitchen Towels                        -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-kitchen">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">04</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Kitchen Towels</h2>
+                    </div>
+                    <a href="category-kitchen-towels.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-kitchen-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Kitchen</span>
+                                <img src="https://placehold.co/600x750/2a1f0e/ffffff?text=Check+Kitchen+Towel"
+                                    alt="Check Kitchen Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Check Kitchen Towel</h3>
+                            <p class="section-body card-desc">Classic check-pattern kitchen towel in 100% cotton, highly
+                                absorbent and suitable for commercial kitchen and retail.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×70 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>180</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-kitchen-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Kitchen</span>
+                                <img src="https://placehold.co/600x750/1f160a/ffffff?text=Plain+Kitchen+Towel"
+                                    alt="Plain Kitchen Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Plain Kitchen Towel</h3>
+                            <p class="section-body card-desc">Clean white plain cotton kitchen towel — perfect for
+                                catering, restaurant, and institutional bulk supply.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>45×65 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>160</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-kitchen-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Kitchen</span>
+                                <img src="https://placehold.co/600x750/251808/ffffff?text=Stripe+Kitchen+Towel"
+                                    alt="Stripe Kitchen Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Stripe Kitchen Towel</h3>
+                            <p class="section-body card-desc">Vibrant stripe-pattern kitchen towels in woven cotton,
+                                available in multiple colour options for retail packaging.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×70 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>200</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 5 — Hotel Towels                          -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-hotel">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">05</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Hotel Towels</h2>
+                    </div>
+                    <a href="category-hotel-towels.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-hotel-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Hotel Grade</span>
+                                <img src="https://placehold.co/600x750/06192C/ffffff?text=Hotel+Bath+Towel"
+                                    alt="Hotel Bath Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Hotel Bath Towel</h3>
+                            <p class="section-body card-desc">Premium white 550 GSM hotel bath towel — thick, plush, and
+                                designed to meet 5-star hospitality standards worldwide.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>70×140 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>550</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-hotel-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Hotel Grade</span>
+                                <img src="https://placehold.co/600x750/071c30/ffffff?text=Hotel+Hand+Towel"
+                                    alt="Hotel Hand Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Hotel Hand Towel</h3>
+                            <p class="section-body card-desc">Plush hotel-grade hand towels in pristine white, ideal for
+                                in-room amenity kits and hospitality linen supply.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>50×90 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>500</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-hotel-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Hotel Grade</span>
+                                <img src="https://placehold.co/600x750/04101c/ffffff?text=Hotel+Face+Cloth"
+                                    alt="Hotel Face Cloth">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Hotel Face Cloth</h3>
+                            <p class="section-body card-desc">Ultra-soft hotel face cloths with dobby border, available
+                                with custom embroidery for branded hospitality linen.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>30×30 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>500</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 6 — Beach Towels                          -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-beach">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">06</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Beach Towels</h2>
+                    </div>
+                    <a href="category-beach-towels.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-beach-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Beach</span>
+                                <img src="https://placehold.co/600x750/0d3b5e/ffffff?text=Velour+Beach+Towel"
+                                    alt="Velour Beach Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Velour Beach Towel</h3>
+                            <p class="section-body card-desc">Oversized velour-finish beach towel with vibrant print
+                                options — designed for resort retail and beach club supply.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>80×160 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>400</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-beach-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Beach</span>
+                                <img src="https://placehold.co/600x750/093050/ffffff?text=Printed+Beach+Towel"
+                                    alt="Printed Beach Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Printed Beach Towel</h3>
+                            <p class="section-body card-desc">Full-print reactive dyed beach towels available in custom
+                                artwork — ideal for private label and souvenir retail.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>75×150 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>380</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-beach-towels.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Beach</span>
+                                <img src="https://placehold.co/600x750/072640/ffffff?text=Jacquard+Beach+Towel"
+                                    alt="Jacquard Beach Towel">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Jacquard Beach Towel</h3>
+                            <p class="section-body card-desc">Premium jacquard-woven beach towels with intricate
+                                patterns — a high-value retail item for beach and resort markets.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Size <span>80×160 cm</span></span>
+                                <span class="card-spec-badge">GSM <span>450</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- CATEGORY 7 — Garments Collection                   -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <section class="product-cat-section" id="cat-garments">
+            <div class="container">
+
+                <div class="cat-header" data-aos="fade-up">
+                    <div>
+                        <div class="cat-meta">
+                            <span class="cat-num">07</span>
+                            <span class="cat-divider"></span>
+                        </div>
+                        <h2 class="cat-title">Garments Collection</h2>
+                    </div>
+                    <a href="category-garments.html" class="cat-view-all">
+                        Full Product List <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
+                        <a href="category-garments.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Garments</span>
+                                <img src="https://placehold.co/600x750/1a1a2e/ffffff?text=Premium+Sweatshirt"
+                                    alt="Premium Sweatshirt">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Premium Sweatshirt</h3>
+                            <p class="section-body card-desc">320 GSM fleece-back cotton sweatshirt — ideal for private
+                                label sportswear, retail brands, and OEM manufacturing.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Fabric <span>100% Cotton</span></span>
+                                <span class="card-spec-badge">GSM <span>320</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="160">
+                        <a href="category-garments.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Garments</span>
+                                <img src="https://placehold.co/600x750/151528/ffffff?text=Cotton+T-Shirt"
+                                    alt="Cotton T-Shirt">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Cotton T-Shirt</h3>
+                            <p class="section-body card-desc">Lightweight 180 GSM combed cotton round-neck T-shirt,
+                                available in custom prints, sizes, and branded packaging.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Fabric <span>Combed Cotton</span></span>
+                                <span class="card-spec-badge">GSM <span>180</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="240">
+                        <a href="category-garments.html" class="collection-card">
+                            <div class="card-img-wrapper">
+                                <span class="card-tag">Garments</span>
+                                <img src="https://placehold.co/600x750/0f0f20/ffffff?text=Hoodie" alt="Premium Hoodie">
+                                <div class="card-btn"><span>View Details</span></div>
+                            </div>
+                            <h3 class="card-title">Premium Hoodie</h3>
+                            <p class="section-body card-desc">Heavy-weight 380 GSM cotton hoodie with custom embroidery
+                                or print options — popular for streetwear and export brands.</p>
+                            <div class="card-spec-row">
+                                <span class="card-spec-badge">Fabric <span>Cotton Fleece</span></span>
+                                <span class="card-spec-badge">GSM <span>380</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── Final CTA ───────────────────────────────────────────── -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h2 class="cta-heading">Can't Find What<br>You're Looking For?</h2>
+                </div>
+                <div class="col-lg-5 offset-lg-1 cta-text-wrapper" data-aos="fade-up" data-aos-delay="150">
+                    <p class="cta-text">We source custom products beyond our catalogue. Share your requirements and
+                        we'll identify the right manufacturer and deliver to your door.</p>
+                    <div>
+                        <a href="contact.html" class="btn-accent">Send an Enquiry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ──────────────────────────────────────────────── -->
+    <footer class="main-footer-wrap">
+        <div class="main-footer py-0">
+            <div class="container">
+                <div class="row justify-content-between py-5 g-4">
+                    <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+                        <h3 class="footer-brand">Balaji Garments</h3>
+                        <p class="footer-desc">Founded On The Principles Of Quality And Reliability, Balaji Exports Has
+                            Established Itself As A Leading Merchant Exporter From India.</p>
+                        <div class="footer-socials pt-5">
+                            <a href="https://instagram.com" target="_blank" rel="noopener"><i
+                                    class="ri-instagram-line"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://facebook.com" target="_blank" rel="noopener"><i
+                                    class="ri-facebook-fill"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://youtube.com" target="_blank" rel="noopener"><i
+                                    class="ri-youtube-fill"></i></a>
+                            <span class="social-divider">|</span>
+                            <a href="https://x.com" target="_blank" rel="noopener"><i class="ri-twitter-x-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="row g-4">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <h3 class="footer-title">Navigation</h3>
+                                <ul class="footer-links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <h3 class="footer-title">Utility Page</h3>
+                                <ul class="footer-links">
+                                    <li><a href="privacy.html">Privacy Policy</a></li>
+                                    <li><a href="license.html">Licence</a></li>
+                                    <li><a href="style-guide.html">Style Guide</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center pb-5 mb-5">
+            <div class="container">
+                <p class="copyright-text">Copyright &copy; 2026 &ndash; Balaji Garments &ndash; All Rights Reserved</p>
+            </div>
+            <div class="footer-watermark">Balaji Garments</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+
+    <!-- Products page filter scroll logic -->
+    <script>
+        // Smooth scroll for category filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                // Scroll to target section
+                const target = document.getElementById(btn.dataset.target);
+                if (target) {
+                    const offset = 140; // navbar + filter bar height
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Highlight active filter based on scroll position
+        const sections = document.querySelectorAll('.product-cat-section');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => {
+                const top = sec.getBoundingClientRect().top;
+                if (top < 200) current = sec.id;
+            });
+            filterBtns.forEach(btn => {
+                btn.classList.toggle('is-active', btn.dataset.target === current);
+            });
+        }, { passive: true });
+    </script>
+
+</body>
+
+</html>
