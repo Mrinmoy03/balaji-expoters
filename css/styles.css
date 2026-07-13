@@ -11901,10 +11901,39 @@ body {
 .site-header .navbar-brand {
   padding: 0;
   margin-right: 2rem;
+  text-decoration: none;
 }
 .site-header .navbar-brand img {
   height: 55px;
   width: auto;
+}
+.site-header .navbar-brand .logo-text-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+  text-align: left;
+}
+.site-header .navbar-brand .logo-text-brand .logo-main {
+  font-family: "Archivo", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: block;
+}
+.site-header .navbar-brand .logo-text-brand .logo-sub {
+  font-family: "Archivo", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 3px;
+  margin-right: -0.32em;
+  padding-left: 34PX;
 }
 .site-header .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.85);
