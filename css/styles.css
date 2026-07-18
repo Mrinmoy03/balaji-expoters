@@ -12242,17 +12242,15 @@ body {
   animation-play-state: paused;
 }
 .marquee-content .marquee-logo {
-  height: 35px;
+  height: 65px;
   width: auto;
-  opacity: 0.5;
+  opacity: 0.8;
   transition: opacity 0.3s ease, filter 0.3s ease;
   object-fit: contain;
-  filter: grayscale(100%);
   flex-shrink: 0;
 }
 .marquee-content .marquee-logo:hover {
   opacity: 1;
-  filter: grayscale(0%);
 }
 
 @keyframes marquee-scroll {
@@ -12279,6 +12277,94 @@ footer p {
 @media (max-width: 768px) {
   .fs-6 {
     font-size: 14px !important;
+  }
+}
+
+.floating-actions {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  z-index: 999;
+}
+
+@keyframes bounce-download {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.floating-btn:hover {
+  transform: translateY(-5px);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+.floating-btn.whatsapp-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #25D366;
+  font-size: 1.8rem;
+}
+.floating-btn.whatsapp-btn:hover {
+  background-color: #1ebd5a;
+}
+.floating-btn.brochure-btn {
+  height: 45px;
+  padding: 0 20px;
+  border-radius: 30px;
+  background-color: #EF3943;
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  border: none;
+}
+.floating-btn.brochure-btn i {
+  font-size: 1.2rem;
+  color: #fff;
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+.floating-btn.brochure-btn:hover {
+  background-color: #d42f38;
+}
+.floating-btn.brochure-btn:hover i {
+  animation: bounce-download 0.55s ease forwards;
+}
+@media (max-width: 768px) {
+  .floating-btn.whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  .floating-btn.brochure-btn {
+    height: 40px;
+    font-size: 0.85rem;
+    padding: 0 15px;
   }
 }
 
@@ -13882,6 +13968,33 @@ footer p {
   background-color: #fff;
 }
 
+.collection-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+.collection-swiper .swiper-slide {
+  height: auto;
+  box-sizing: border-box;
+}
+.collection-swiper .swiper-pagination {
+  position: relative;
+  bottom: auto;
+  margin-top: 2.5rem;
+}
+.collection-swiper .swiper-pagination .swiper-pagination-bullet {
+  background: #06192C;
+  opacity: 0.25;
+  width: 8px;
+  height: 8px;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+.collection-swiper .swiper-pagination .swiper-pagination-bullet-active {
+  background: #EF3943;
+  opacity: 1;
+  width: 24px;
+  border-radius: 4px;
+}
+
 .collection-card {
   display: block;
   text-decoration: none;
@@ -14017,7 +14130,7 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(6, 25, 44, 0.9) 0%, rgba(6, 25, 44, 0.8) 50%, rgba(6, 25, 44, 0.75) 100%);
+  background: linear-gradient(to left, rgba(9, 35, 76, 0.5) 0%, rgba(8, 22, 45, 0.65) 74%, rgba(0, 6, 15, 0.75) 100%);
   z-index: 1;
 }
 .signature-section .container {

@@ -9,10 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize AOS (Animate On Scroll)
     AOS.init({
-        duration: 800,
+        duration: 700,
         easing: 'ease-in-out',
         once: true,
-        offset: 100,
+        offset: 40,          // trigger earlier (was 100)
+        mirror: false,
+        anchorPlacement: 'top-bottom',
+    });
+
+    // Refresh AOS after all images load so element positions are correct
+    window.addEventListener('load', () => {
+        AOS.refresh();
     });
 
     // ── Sticky Navbar: blur + hide/show on scroll ────────────
@@ -270,6 +277,57 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initialize Collection Swiper (index page only)
+    if (document.querySelector('.collection-swiper')) {
+        new Swiper('.collection-swiper', {
+            loop: true,
+            speed: 800,
+            spaceBetween: 30,
+            slidesPerView: 1.1,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            pagination: {
+                el: '.collection-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                576: { slidesPerView: 1.5, spaceBetween: 24 },
+                768: { slidesPerView: 2.2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+            },
+        });
+    }
+
+    // Refresh AOS after all Swipers settle to fix stale element positions
+    setTimeout(() => AOS.refresh(), 500);
+
+    // Auto-scroll to category on products.html load based on URL query parameter or hash
+    if (window.location.pathname.includes('products.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryQuery = urlParams.get('category');
+        const hashQuery = window.location.hash ? window.location.hash.substring(1) : null;
+        const targetId = categoryQuery || hashQuery;
+
+        if (targetId) {
+            setTimeout(() => {
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const offset = 140;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+
+                    // Also set active class on category filter button
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.toggle('is-active', btn.dataset.target === targetId);
+                    });
+                }
+            }, 300);
+        }
+    }
 
     // Floating Brochure Popup logic (shows on each page load)
     setTimeout(() => {
