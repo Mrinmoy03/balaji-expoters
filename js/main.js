@@ -212,45 +212,144 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCounters();
     }
 
-    // Dynamic timeline axis fill on scroll (horizontal on desktop, vertical on mobile)
+    // Dynamic timeline axis fill / GSAP horizontal scroll handling
     const timelineWrapper = document.querySelector('.production-timeline-wrapper');
     const axisFill = document.querySelector('.timeline-axis-fill');
     if (timelineWrapper && axisFill) {
-        const updateAxisFill = () => {
-            const isMobile = window.innerWidth < 992;
+        const isGSAPEnabled = timelineWrapper.classList.contains('gs-scroll-enabled') && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+        let gsapTimeline = null;
+        let wasMobile = window.innerWidth < 992;
 
-            if (isMobile) {
-                // Mobile: vertical scroll progress based on section viewport position
-                const rect = timelineWrapper.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
+        const initGSAPTimeline = () => {
+            const scrollContent = timelineWrapper.querySelector('.timeline-scroll-content');
+            if (!scrollContent) return;
 
-                // Calculate percentage based on how much of the section has entered/passed the viewport
-                const totalHeight = rect.height;
-                const scrolled = windowHeight - rect.top - 120; // 120px offset for better visual alignment
+            // Clear previous timeline if active
+            if (gsapTimeline) {
+                gsapTimeline.scrollTrigger.kill(true);
+                gsapTimeline.kill();
+                gsapTimeline = null;
+            }
 
-                let fillPercent = 0;
-                if (scrolled >= 0) {
-                    fillPercent = Math.min(100, (scrolled / (totalHeight + 50)) * 100);
-                }
-                axisFill.style.height = `${fillPercent}%`;
-                axisFill.style.width = '100%';
-            } else {
-                // Desktop: horizontal scroll progress
-                const scrollLeft = timelineWrapper.scrollLeft;
-                const scrollWidth = timelineWrapper.scrollWidth;
-                const clientWidth = timelineWrapper.clientWidth;
-                const maxScroll = scrollWidth - clientWidth;
+            // Reset positioning styles
+            gsap.set(scrollContent, { clearProps: "transform" });
+            gsap.set(axisFill, { clearProps: "width,height" });
+            gsap.set(axisFill, { height: '100%' });
 
-                const fillPercent = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
-                axisFill.style.width = `${fillPercent}%`;
-                axisFill.style.height = '100%';
+            const totalWidth = scrollContent.offsetWidth; // 2240px
+            const visibleWidth = timelineWrapper.clientWidth;
+            const amountToScroll = totalWidth - visibleWidth;
+
+            if (amountToScroll > 0) {
+                gsapTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".process-section",
+                        pin: true,
+                        start: "top top",
+                        end: () => `+=${amountToScroll * 1.2}`,
+                        scrub: 1,
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                    }
+                });
+
+                gsapTimeline.to(scrollContent, {
+                    x: () => -(scrollContent.offsetWidth - timelineWrapper.clientWidth),
+                    ease: "none"
+                }, 0);
+
+                gsapTimeline.to(axisFill, {
+                    width: "100%",
+                    ease: "none"
+                }, 0);
             }
         };
 
+        const killGSAPTimeline = () => {
+            if (gsapTimeline) {
+                gsapTimeline.scrollTrigger.kill(true);
+                gsapTimeline.kill();
+                gsapTimeline = null;
+            }
+            const scrollContent = timelineWrapper.querySelector('.timeline-scroll-content');
+            if (scrollContent) {
+                gsap.set(scrollContent, { clearProps: "all" });
+            }
+            gsap.set(axisFill, { clearProps: "all" });
+        };
+
+        const updateAxisFill = () => {
+            const isMobile = window.innerWidth < 992;
+
+            if (isGSAPEnabled) {
+                if (isMobile) {
+                    killGSAPTimeline();
+                    // Mobile fallback: vertical fill logic on scroll
+                    const rect = timelineWrapper.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    const totalHeight = rect.height;
+                    const scrolled = windowHeight - rect.top - 120;
+
+                    let fillPercent = 0;
+                    if (scrolled >= 0) {
+                        fillPercent = Math.min(100, (scrolled / (totalHeight + 50)) * 100);
+                    }
+                    axisFill.style.height = `${fillPercent}%`;
+                    axisFill.style.width = '100%';
+                } else {
+                    // Desktop with GSAP: initialize timeline
+                    if (!gsapTimeline) {
+                        initGSAPTimeline();
+                    }
+                }
+            } else {
+                // Standard behavior (non-GSAP or services page timeline)
+                if (isMobile) {
+                    const rect = timelineWrapper.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    const totalHeight = rect.height;
+                    const scrolled = windowHeight - rect.top - 120;
+
+                    let fillPercent = 0;
+                    if (scrolled >= 0) {
+                        fillPercent = Math.min(100, (scrolled / (totalHeight + 50)) * 100);
+                    }
+                    axisFill.style.height = `${fillPercent}%`;
+                    axisFill.style.width = '100%';
+                } else {
+                    const scrollLeft = timelineWrapper.scrollLeft;
+                    const scrollWidth = timelineWrapper.scrollWidth;
+                    const clientWidth = timelineWrapper.clientWidth;
+                    const maxScroll = scrollWidth - clientWidth;
+
+                    const fillPercent = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+                    axisFill.style.width = `${fillPercent}%`;
+                    axisFill.style.height = '100%';
+                }
+            }
+        };
+
+        // Attach scroll/interaction listeners
         window.addEventListener('scroll', updateAxisFill, { passive: true });
         timelineWrapper.addEventListener('scroll', updateAxisFill, { passive: true });
-        window.addEventListener('resize', updateAxisFill, { passive: true });
-        // Run once initially to capture initial offset
+
+        // Handle resize events to toggle timeline structure
+        window.addEventListener('resize', () => {
+            const isMobile = window.innerWidth < 992;
+            if (isMobile !== wasMobile) {
+                wasMobile = isMobile;
+                if (isGSAPEnabled) {
+                    if (isMobile) {
+                        killGSAPTimeline();
+                    } else {
+                        initGSAPTimeline();
+                    }
+                }
+            }
+            updateAxisFill();
+        }, { passive: true });
+
+        // Initial run
         updateAxisFill();
     }
 
