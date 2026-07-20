@@ -134,6 +134,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Initialize Reels Swiper (index page only)
+    if (document.querySelector('.reels-swiper')) {
+        new Swiper('.reels-swiper', {
+            loop: true,
+            speed: 700,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.reels-swiper .swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+
     // Initialize Core Services Swiper (services page only)
     if (document.querySelector('.services-swiper')) {
         const servicesSwiper = new Swiper('.services-swiper', {

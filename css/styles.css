@@ -11904,8 +11904,13 @@ body {
   text-decoration: none;
 }
 .site-header .navbar-brand img {
-  height: 65px;
-  width: auto;
+  height: auto;
+  width: 70px;
+}
+@media (max-width: 992px) {
+  .site-header .navbar-brand img {
+    width: 55px;
+  }
 }
 .site-header .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.85);
@@ -13639,7 +13644,7 @@ footer p {
 
 .product-filter-bar {
   position: sticky;
-  top: 71px;
+  top: 88px;
   z-index: 100;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
@@ -13653,7 +13658,7 @@ footer p {
 }
 @media screen and (max-width: 767px) {
   .product-filter-bar {
-    top: 89px;
+    top: 81px;
   }
 }
 
@@ -14299,6 +14304,53 @@ footer p {
   overflow: hidden;
   background-color: #06192C;
 }
+.video-container.portrait-reel {
+  aspect-ratio: 16/9;
+  border-radius: 1.25rem;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #06192C;
+  overflow: hidden;
+}
+.video-container.portrait-reel .reel-inner {
+  position: absolute;
+  inset: 0;
+}
+.video-container.portrait-reel .reel-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+.video-container.portrait-reel .play-btn {
+  width: 76px;
+  height: 76px;
+  font-size: 2.2rem;
+  z-index: 3;
+}
+.video-container.portrait-reel .reel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 2;
+  pointer-events: none;
+}
+.video-container.portrait-reel .reel-overlay i {
+  font-size: 1.15rem;
+}
+.video-container.portrait-reel .reel-caption {
+  display: none;
+}
 .video-container img {
   width: 100%;
   height: 100%;
@@ -14340,6 +14392,23 @@ footer p {
 }
 .play-btn:hover i {
   transform: scale(1.05);
+}
+
+.reels-swiper {
+  padding-bottom: 3.5rem;
+}
+.reels-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+.reels-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.reels-swiper .swiper-pagination-bullet-active {
+  background: #EF3943;
+  width: 18px;
+  border-radius: 10px;
 }
 
 .why-balaji-section {
@@ -14692,8 +14761,32 @@ footer p {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 320px;
+}
+.main-footer .footer-contact-info {
+  margin-bottom: 2rem;
+}
+.main-footer .footer-contact-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+.main-footer .footer-contact-info p i {
+  color: #EF3943;
+  font-size: 1.1rem;
+  margin-top: -2px;
+}
+.main-footer .footer-contact-info p a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.main-footer .footer-contact-info p a:hover {
+  color: #EF3943;
 }
 .main-footer .footer-socials {
   display: flex;
