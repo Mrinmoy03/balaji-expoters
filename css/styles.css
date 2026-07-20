@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "../../node_modules/swiper/swiper-bundle.min.css";
+@import "../node_modules/swiper/swiper-bundle.min.css";
 /*!
  * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
@@ -13653,7 +13653,7 @@ footer p {
 }
 @media screen and (max-width: 767px) {
   .product-filter-bar {
-    top: 54px;
+    top: 89px;
   }
 }
 
@@ -14513,12 +14513,18 @@ footer p {
   overflow: visible !important;
   padding: 1rem 0 2rem;
 }
+.testimonial-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
 
 .testimonial-card {
   background-color: #ffffff;
   border-radius: 12px;
   padding: 2rem;
-  min-height: 300px;
+  height: 100%;
+  min-height: 350px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
