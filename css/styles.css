@@ -12225,12 +12225,17 @@ body {
   animation-play-state: paused;
 }
 .marquee-content .marquee-logo {
-  height: 65px;
+  height: 70px;
   width: auto;
   opacity: 0.8;
   transition: opacity 0.3s ease, filter 0.3s ease;
   object-fit: contain;
   flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .marquee-content .marquee-logo {
+    height: 50px;
+  }
 }
 .marquee-content .marquee-logo:hover {
   opacity: 1;
