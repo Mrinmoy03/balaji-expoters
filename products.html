@@ -148,7 +148,7 @@
                         <h2 class="cat-title">Cotton Terry Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -315,7 +315,7 @@
                         <h2 class="cat-title">Cotton &amp; Polyester Mixed Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -463,7 +463,7 @@
                         <h2 class="cat-title">Multi-Stripe Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
                 <div class="row">
@@ -608,7 +608,7 @@
                         <h2 class="cat-title">Kitchen Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -668,7 +668,7 @@
                         <h2 class="cat-title">Hotel Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -746,7 +746,7 @@
                         <h2 class="cat-title">Beach Towels</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -818,7 +818,7 @@
                         <h2 class="cat-title">Garments Collection</h2>
                     </div>
                     <a href="#" class="cat-view-all" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Enquirey Now <i class="ri-arrow-right-line"></i>
+                        Request Quotation <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
 
@@ -1390,9 +1390,10 @@
                 <i class="ri-file-text-line"></i>
             </div>
             <div>
-                <h4 class="brochure-popup-title">Explore Our Full Range</h4>
+                <h4 class="brochure-popup-title">Download Complete Product Catalogue</h4>
                 <p class="brochure-popup-text">We have displayed only our primary collections here. To explore all of
-                    our products, fabrics, configurations, and sizes, please download our full product brochure.</p>
+                    our product specifications, GSM, sizes, colours, OEM and private label options, please download our
+                    full product brochure.</p>
 
             </div>
         </div>
@@ -1454,19 +1455,35 @@
                                     </div>
                                 </div>
 
-                                <!-- Customer Details / Business Type -->
-                                <div class="col-12">
+                                <!-- Business Profile Dropdown -->
+                                <div class="col-md-6">
                                     <div class="form-group-custom">
-                                        <label for="modal-businessType" class="form-label-custom">I am a / we
-                                            are:</label>
+                                        <label for="modal-businessType" class="form-label-custom">Business Profile</label>
                                         <select id="modal-businessType" class="form-select-custom" required>
-                                            <option value="" disabled selected>Choose business profile...</option>
-                                            <option value="Importer">Merchant Importer / Distributor</option>
-                                            <option value="Wholesaler">Wholesaler / Trader</option>
-                                            <option value="Retailer">Retail Store / E-commerce Brand</option>
-                                            <option value="Hospitality">Hotel / Resort / Institutional Buyer</option>
-                                            <option value="GarmentOEM">Garment Brand / OEM Client</option>
-                                            <option value="Other">Other / General Inquiry</option>
+                                            <option value="" disabled selected>Select business profile...</option>
+                                            <option value="Importer">Importer</option>
+                                            <option value="Distributor">Distributor</option>
+                                            <option value="Wholesaler">Wholesaler</option>
+                                            <option value="Retail Chain">Retail Chain</option>
+                                            <option value="Buying House">Buying House</option>
+                                            <option value="Hotel">Hotel</option>
+                                            <option value="Brand Owner">Brand Owner</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Estimated Order Quantity Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group-custom">
+                                        <label for="modal-orderQuantity" class="form-label-custom">Estimated Order Quantity</label>
+                                        <select id="modal-orderQuantity" class="form-select-custom" required>
+                                            <option value="" disabled selected>Select estimated order...</option>
+                                            <option value="Sample Order">Sample Order</option>
+                                            <option value="20ft Container">20ft Container</option>
+                                            <option value="40ft Container">40ft Container</option>
+                                            <option value="Multiple Containers">Multiple Containers</option>
+                                            <option value="LCL / Trial Order">LCL / Trial Order</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1589,9 +1606,14 @@
                                 </div>
 
                                 <!-- Submit Button -->
-                                <div class="col-12 mt-4 d-flex justify-content-center">
-                                    <button type="submit" class="btn-accent px-5 py-2.5"
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn-accent px-5 py-2.5 mb-3"
                                         style="font-size: 0.95rem;">Send Export Enquiry</button>
+                                    <div>
+                                        <span class="form-response-note">
+                                            <i class="ri-time-line"></i> We respond to all business enquiries within 24 working hours.
+                                        </span>
+                                    </div>
                                 </div>
 
                             </div>

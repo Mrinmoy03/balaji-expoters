@@ -12969,7 +12969,7 @@ footer p {
   color: #fff;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  max-width: 660px;
+  max-width: 750px;
   margin-bottom: 2rem;
 }
 .page-hero .page-hero-title em {
@@ -13027,6 +13027,81 @@ footer p {
   50% {
     transform: translateY(6px);
   }
+}
+
+.key-services-marquee-section {
+  background-color: #ffffff;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.key-services-marquee-section .marquee-container {
+  width: 70%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  margin-inline: auto;
+}
+@media (max-width: 992px) {
+  .key-services-marquee-section .marquee-container {
+    width: 85%;
+  }
+}
+@media (max-width: 576px) {
+  .key-services-marquee-section .marquee-container {
+    width: 100%;
+  }
+}
+.key-services-marquee-section .marquee-container::before, .key-services-marquee-section .marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.key-services-marquee-section .marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+.key-services-marquee-section .marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+.key-services-marquee-section .marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-left: 3.5rem;
+  animation: marquee-scroll 25s linear infinite;
+}
+@media (max-width: 768px) {
+  .key-services-marquee-section .marquee-content {
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+.ks-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+.ks-marquee-item i {
+  font-size: 1.1rem;
+  color: #EF3943;
+  line-height: 1;
+}
+.ks-marquee-item span {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #2D3748;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.ks-marquee-item:hover span {
+  color: #EF3943;
 }
 
 .intro-section {
@@ -14981,6 +15056,19 @@ footer p {
   border-color: #EF3943;
   background-color: #ffffff;
   box-shadow: 0 0 0 4px rgba(239, 57, 67, 0.15);
+}
+
+.form-response-note {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #64748B;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.form-response-note i {
+  font-size: 1.05rem;
+  color: #EF3943;
 }
 
 .form-select-custom {
