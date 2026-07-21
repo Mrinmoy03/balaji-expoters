@@ -14169,6 +14169,7 @@ footer p {
   }
   .enquiry-modal .form-response-note {
     font-size: 0.8rem;
+    align-items: start;
     text-align: center;
     justify-content: center;
   }
