@@ -14148,6 +14148,31 @@ footer p {
   --bs-gutter-y: 1rem !important;
   --bs-gutter-x: 1rem !important;
 }
+@media (max-width: 576px) {
+  .enquiry-modal .modal-body {
+    padding: 1.5rem !important;
+    padding-top: 0 !important;
+  }
+  .enquiry-modal .col-12.mt-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .enquiry-modal .col-12.mt-4 button[type=submit] {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.9rem 1rem;
+  }
+  .enquiry-modal .form-response-note {
+    font-size: 0.8rem;
+    text-align: center;
+    justify-content: center;
+  }
+}
 
 .collection-section {
   background-color: #fff;
