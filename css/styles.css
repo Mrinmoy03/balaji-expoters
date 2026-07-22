@@ -14672,6 +14672,11 @@ footer p {
   z-index: 2;
   pointer-events: none;
 }
+@media (min-width: 1920px) {
+  .testimonials-swiper-wrapper::before {
+    left: -366px !important;
+  }
+}
 .testimonials-swiper-wrapper::after {
   content: "";
   position: absolute;
@@ -14682,6 +14687,11 @@ footer p {
   background: linear-gradient(to right, rgba(247, 248, 249, 0) 0%, rgba(247, 248, 249, 0.85) 40%, #f7f8f9 75%);
   z-index: 2;
   pointer-events: none;
+}
+@media (min-width: 1920px) {
+  .testimonials-swiper-wrapper::after {
+    right: -366px !important;
+  }
 }
 
 .testimonial-swiper {
