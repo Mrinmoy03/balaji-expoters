@@ -13652,6 +13652,25 @@ footer p {
   color: #06192C;
   font-weight: 700;
 }
+.quality-clients-section .happy-clients-insta-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c13537;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+.quality-clients-section .happy-clients-insta-link i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.quality-clients-section .happy-clients-insta-link:hover {
+  color: #180b80;
+  gap: 0.65rem;
+}
 .quality-clients-section .qc-image-wrapper {
   position: relative;
   padding: 1.5rem 1.5rem 1.5rem 0;
