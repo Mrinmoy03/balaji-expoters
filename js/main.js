@@ -54,48 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', onScroll, { passive: true });
     }
 
-    // ── Hover Hint Tooltips ──────────────────────────────────
-    const setupHoverHint = (hintId, sectionSelector, cardSelector) => {
+    // ── Hover Hint Tooltips (Permanent on Desktop) ───────────
+    const setupHoverHint = (hintId, sectionSelector) => {
         const hint = document.getElementById(hintId);
         const section = document.querySelector(sectionSelector);
         if (!hint || !section) return;
 
-        let dismissTimer = null;
-
-        const dismissHint = () => {
-            if (!hint.classList.contains('is-visible')) return;
-            clearTimeout(dismissTimer);
-            hint.classList.remove('is-visible');
-            hint.classList.add('is-hiding');
-            setTimeout(() => hint.style.display = 'none', 400);
-        };
-
-        const showHint = () => {
-            hint.classList.add('is-visible');
-            // Auto-dismiss after 3.5s
-            dismissTimer = setTimeout(dismissHint, 3500);
-        };
-
-        // Trigger on section entering viewport
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(showHint, 600); // slight delay feels more natural
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(section);
-
-        // Dismiss on first card hover
-        section.querySelectorAll(cardSelector).forEach(card => {
-            card.addEventListener('mouseenter', dismissHint, { once: true });
-        });
+        hint.classList.add('is-visible');
     };
 
-    setupHoverHint('serviceHoverHint', '.service-section', '.service-card');
-    setupHoverHint('whyHoverHint', '.why-balaji-section', '.why-card');
+    setupHoverHint('serviceHoverHint', '.service-section');
+    setupHoverHint('whyHoverHint', '.why-balaji-section');
 
     // Initialize Hero Swiper (index page only)
     if (document.querySelector('.heroSwiper')) {
