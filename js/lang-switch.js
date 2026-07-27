@@ -34,7 +34,7 @@
     function setGoogleTranslateCookie(langCode) {
         const domain = window.location.hostname;
         const cookieVal = langCode === 'en' ? '' : `/en/${langCode}`;
-        
+
         document.cookie = `googtrans=${cookieVal}; path=/;`;
         document.cookie = `googtrans=${cookieVal}; path=/; domain=${domain};`;
         if (domain.includes('.')) {
@@ -51,6 +51,22 @@
         return found ? found.code : 'en';
     }
 
+    // ── Languages that produce notably longer text than English ──
+    // These get body class 'lang-verbose' for CSS font-size overrides.
+    const verboseLangs = ['fr', 'de', 'es', 'pt', 'it', 'pl', 'ru', 'nl', 'tr'];
+    // These produce shorter/compact text — no change needed.
+    // 'en', 'ja', 'zh-CN', 'ko', 'ar', 'hi', 'ta', 'vi', 'id', 'he', 'sw'
+
+    // ── Apply body attribute for CSS targeting ────────────────
+    function applyLangBodyClass(langCode) {
+        document.body.removeAttribute('data-lang-size');
+        if (verboseLangs.includes(langCode)) {
+            document.body.setAttribute('data-lang-size', 'verbose');
+        }
+        // Also set the lang code itself for ultra-specific overrides
+        document.body.setAttribute('data-lang', langCode);
+    }
+
     // ── Apply Language Switch ─────────────────────────────────
     function switchLanguage(langCode, reloadIfNeeded = true) {
         const currentLang = localStorage.getItem(STORAGE_KEY) || 'en';
@@ -59,6 +75,7 @@
 
         // Update UI components
         updateSelectorUI(langCode);
+        applyLangBodyClass(langCode);
 
         if (reloadIfNeeded && currentLang !== langCode) {
             window.location.reload();
@@ -143,8 +160,9 @@
             mobileOffcanvasBody.appendChild(div);
         }
 
-        // Initial UI state update
+        // Initial UI state update + apply body lang class on page load
         updateSelectorUI(savedLang);
+        applyLangBodyClass(savedLang);
 
         // Event listener for language option clicks
         document.addEventListener('click', function (e) {

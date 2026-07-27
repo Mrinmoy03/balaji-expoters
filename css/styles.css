@@ -15389,6 +15389,7 @@ body {
   line-height: 1;
 }
 .lang-selector-wrapper .lang-btn .lang-btn-current-name {
+  margin-top: 3px;
   color: #ffffff;
   font-weight: 600;
 }
@@ -15557,6 +15558,73 @@ body {
 }
 .mobile-nav .lang-selector-wrapper .lang-btn:hover .lang-arrow, .mobile-nav .lang-selector-wrapper .lang-btn[aria-expanded=true] .lang-arrow {
   color: #ffffff;
+}
+
+body[data-lang-size=verbose] .hero-content-col h1 {
+  font-size: clamp(1.35rem, 2.8vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+body[data-lang-size=verbose] .hero-content-col p {
+  font-size: clamp(0.8rem, 1.15vw, 0.95rem) !important;
+  max-width: 520px;
+}
+body[data-lang-size=verbose] .page-hero-title {
+  font-size: clamp(1.6rem, 3.5vw, 3rem) !important;
+  line-height: 1.2 !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+body[data-lang-size=verbose] .section-heading {
+  font-size: clamp(1.5rem, 3vw, 2.4rem) !important;
+}
+body[data-lang-size=verbose] .why-title,
+body[data-lang-size=verbose] .service-title,
+body[data-lang-size=verbose] .es-title,
+body[data-lang-size=verbose] .qc-heading {
+  font-size: clamp(1rem, 2vw, 1.35rem) !important;
+  line-height: 1.3 !important;
+}
+body[data-lang-size=verbose] .testimonial-quote {
+  font-size: 0.9rem !important;
+}
+body[data-lang-size=verbose] .card-name {
+  font-size: 0.88rem !important;
+}
+body[data-lang-size=verbose] .timeline-item {
+  width: 320px !important;
+}
+body[data-lang-size=verbose] .timeline-item .timeline-card-wrap {
+  height: auto !important;
+  min-height: 200px;
+  padding-bottom: 2.5rem !important;
+}
+body[data-lang-size=verbose] .timeline-item .step-card-title {
+  font-size: 0.95rem !important;
+  line-height: 1.3 !important;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+body[data-lang-size=verbose] .timeline-item .step-card-desc {
+  font-size: 0.78rem !important;
+  line-height: 1.55 !important;
+}
+body[data-lang-size=verbose] .timeline-item .timeline-spacer {
+  min-height: 200px !important;
+}
+body[data-lang-size=verbose] .timeline-scroll-content {
+  width: 2560px !important;
+}
+body[data-lang-size=verbose] .timeline-axis-line,
+body[data-lang-size=verbose] .timeline-container {
+  width: 2560px !important;
+}
+
+body[data-lang=de] .hero-content-col h1 {
+  font-size: clamp(1.2rem, 2.5vw, 2.25rem) !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
