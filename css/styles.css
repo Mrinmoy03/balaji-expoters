@@ -12807,12 +12807,15 @@ footer p {
 }
 
 .service-section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #0D2752;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: #f8f9fa;
+}
+.service-section .section-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+.service-section .section-heading {
+  color: #ffffff;
 }
 @media (max-width: 768px) {
   .service-section {

@@ -430,4 +430,75 @@ document.addEventListener('DOMContentLoaded', () => {
             popup.classList.remove('is-visible');
         }
     });
+
+    // ── Global Export Enquiry Modal Logic ─────────────────────
+    const initEnquiryModal = () => {
+        const modalEl = document.getElementById('enquiryModal');
+        if (!modalEl) return;
+
+        const phoneInputEl = document.querySelector("#modal-phone");
+        const countrySelectEl = document.querySelector("#modal-country");
+        const modalForm = document.getElementById("modalExportForm");
+
+        // Initialize intl-tel-input if available
+        if (phoneInputEl && window.intlTelInput && !phoneInputEl.dataset.itiInit) {
+            phoneInputEl.dataset.itiInit = "true";
+            window.intlTelInput(phoneInputEl, {
+                initialCountry: "auto",
+                geoIpLookup: callback => {
+                    fetch("https://ipapi.co/json")
+                        .then(res => res.json())
+                        .then(data => callback(data.country_code))
+                        .catch(() => callback("in"));
+                },
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/utils.js"
+            });
+        }
+
+        // Populate countries if empty
+        if (countrySelectEl && countrySelectEl.options.length <= 1) {
+            const countries = [
+                "United States", "United Kingdom", "United Arab Emirates", "Saudi Arabia", 
+                "Germany", "France", "Canada", "Australia", "India", "Spain", "Italy", 
+                "Netherlands", "Singapore", "Japan", "South Korea", "Brazil", "Mexico", 
+                "South Africa", "Qatar", "Kuwait", "Oman", "Bahrain", "Egypt", "Kenya"
+            ];
+            countries.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c;
+                opt.textContent = c;
+                countrySelectEl.appendChild(opt);
+            });
+        }
+
+        // Form Submission
+        if (modalForm && !modalForm.dataset.submitInit) {
+            modalForm.dataset.submitInit = "true";
+            modalForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const checkedCats = [];
+                modalForm.querySelectorAll('input[name="categories"]:checked').forEach(cb => {
+                    checkedCats.push(cb.value);
+                });
+
+                if (checkedCats.length === 0) {
+                    alert("Please select at least one product category of interest.");
+                    return;
+                }
+
+                alert("Thank you! Your export enquiry has been received. Our sales desk will get back to you within 24 hours.");
+                modalForm.reset();
+
+                if (typeof bootstrap !== 'undefined') {
+                    const bsModal = bootstrap.Modal.getInstance(modalEl);
+                    if (bsModal) {
+                        bsModal.hide();
+                    }
+                }
+            });
+        }
+    };
+
+    initEnquiryModal();
 });
