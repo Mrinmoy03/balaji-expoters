@@ -12807,15 +12807,19 @@ footer p {
 }
 
 .service-section {
-  background-color: #0D2752;
+  background-image: url("../images/servicebg.png");
+  background-color: #f8f9fa;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
 .service-section .section-label {
-  color: rgba(255, 255, 255, 0.75);
+  color: #EF3943;
 }
 .service-section .section-heading {
-  color: #ffffff;
+  color: #102C48;
 }
 @media (max-width: 768px) {
   .service-section {
@@ -15361,7 +15365,8 @@ body {
 
 .lang-selector-wrapper {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 .lang-selector-wrapper .lang-btn {
   display: inline-flex;
@@ -15382,6 +15387,7 @@ body {
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3px;
 }
 .lang-selector-wrapper .lang-btn::after {
   display: none !important;
@@ -15392,7 +15398,6 @@ body {
   line-height: 1;
 }
 .lang-selector-wrapper .lang-btn .lang-btn-current-name {
-  margin-top: 3px;
   color: #ffffff;
   font-weight: 600;
 }

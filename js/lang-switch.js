@@ -123,7 +123,7 @@
                     <span class="lang-btn-current-name">English</span>
                     <i class="ri-arrow-down-s-line lang-arrow"></i>
                 </button>
-                <div class="lang-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown_${instanceId}">
+                <div class="lang-dropdown-menu dropdown-menu dropdown-menu-end mb-2" aria-labelledby="langDropdown_${instanceId}">
                     <div class="lang-search-box">
                         <i class="ri-search-line"></i>
                         <input type="text" id="${searchInputId}" class="lang-search-input" placeholder="Search language..." autocomplete="off">
