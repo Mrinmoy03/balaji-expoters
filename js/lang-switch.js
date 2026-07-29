@@ -5,30 +5,40 @@
 
 (function () {
     // ── Supported Languages Database ──────────────────────────
+    // img: 2-letter ISO 3166-1 country code used with flagcdn.com
     const languages = [
-        { code: 'en', name: 'English', native: 'English', flag: '🇬🇧', keywords: 'english uk us' },
-        { code: 'fr', name: 'French', native: 'Français', flag: '🇫🇷', keywords: 'french francais france' },
-        { code: 'de', name: 'German', native: 'Deutsch', flag: '🇩🇪', keywords: 'german deutsch germany' },
-        { code: 'es', name: 'Spanish', native: 'Español', flag: '🇪🇸', keywords: 'spanish espanol spain' },
-        { code: 'ar', name: 'Arabic', native: 'العربية', flag: '🇸🇦', keywords: 'arabic saudi uae' },
-        { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹', keywords: 'italian italiano italy' },
-        { code: 'pt', name: 'Portuguese', native: 'Português', flag: '🇵🇹', keywords: 'portuguese portugues brazil' },
-        { code: 'ru', name: 'Russian', native: 'Русский', flag: '🇷🇺', keywords: 'russian russia' },
-        { code: 'ja', name: 'Japanese', native: '日本語', flag: '🇯🇵', keywords: 'japanese japan' },
-        { code: 'zh-CN', name: 'Chinese (Simplified)', native: '简体中文', flag: '🇨🇳', keywords: 'chinese china' },
-        { code: 'nl', name: 'Dutch', native: 'Nederlands', flag: '🇳🇱', keywords: 'dutch netherlands holland' },
-        { code: 'pl', name: 'Polish', native: 'Polski', flag: '🇵🇱', keywords: 'polish poland' },
-        { code: 'tr', name: 'Turkish', native: 'Türkçe', flag: '🇹🇷', keywords: 'turkish turkey' },
-        { code: 'ko', name: 'Korean', native: '한국어', flag: '🇰🇷', keywords: 'korean korea' },
-        { code: 'hi', name: 'Hindi', native: 'हिन्दी', flag: '🇮🇳', keywords: 'hindi india' },
-        { code: 'ta', name: 'Tamil', native: 'தமிழ்', flag: '🇮🇳', keywords: 'tamil india' },
-        { code: 'vi', name: 'Vietnamese', native: 'Tiếng Việt', flag: '🇻🇳', keywords: 'vietnamese vietnam' },
-        { code: 'id', name: 'Indonesian', native: 'Bahasa Indonesia', flag: '🇮🇩', keywords: 'indonesian indonesia' },
-        { code: 'sw', name: 'Swahili', native: 'Kiswahili', flag: '🇰🇪', keywords: 'swahili kenya africa' },
-        { code: 'he', name: 'Hebrew', native: 'עברית', flag: '🇮🇱', keywords: 'hebrew israel' }
+        { code: 'en', name: 'English', native: 'English', img: 'gb', keywords: 'english uk us' },
+        { code: 'fr', name: 'French', native: 'Français', img: 'fr', keywords: 'french francais france' },
+        { code: 'de', name: 'German', native: 'Deutsch', img: 'de', keywords: 'german deutsch germany' },
+        { code: 'es', name: 'Spanish', native: 'Español', img: 'es', keywords: 'spanish espanol spain' },
+        { code: 'ar', name: 'Arabic', native: 'العربية', img: 'sa', keywords: 'arabic saudi uae' },
+        { code: 'it', name: 'Italian', native: 'Italiano', img: 'it', keywords: 'italian italiano italy' },
+        { code: 'pt', name: 'Portuguese', native: 'Português', img: 'pt', keywords: 'portuguese portugues brazil' },
+        { code: 'ru', name: 'Russian', native: 'Русский', img: 'ru', keywords: 'russian russia' },
+        { code: 'ja', name: 'Japanese', native: '日本語', img: 'jp', keywords: 'japanese japan' },
+        { code: 'zh-CN', name: 'Chinese (Simplified)', native: '简体中文', img: 'cn', keywords: 'chinese china' },
+        { code: 'nl', name: 'Dutch', native: 'Nederlands', img: 'nl', keywords: 'dutch netherlands holland' },
+        { code: 'pl', name: 'Polish', native: 'Polski', img: 'pl', keywords: 'polish poland' },
+        { code: 'tr', name: 'Turkish', native: 'Türkçe', img: 'tr', keywords: 'turkish turkey' },
+        { code: 'ko', name: 'Korean', native: '한국어', img: 'kr', keywords: 'korean korea' },
+        { code: 'hi', name: 'Hindi', native: 'हिन्दी', img: 'in', keywords: 'hindi india' },
+        { code: 'ta', name: 'Tamil', native: 'தமிழ்', img: 'in', keywords: 'tamil india' },
+        { code: 'vi', name: 'Vietnamese', native: 'Tiếng Việt', img: 'vn', keywords: 'vietnamese vietnam' },
+        { code: 'id', name: 'Indonesian', native: 'Bahasa Indonesia', img: 'id', keywords: 'indonesian indonesia' },
+        { code: 'sw', name: 'Swahili', native: 'Kiswahili', img: 'ke', keywords: 'swahili kenya africa' },
+        { code: 'he', name: 'Hebrew', native: 'עברית', img: 'il', keywords: 'hebrew israel' }
     ];
 
     const STORAGE_KEY = 'balaji_lang';
+
+    // ── Helper: Build flag <img> HTML ─────────────────────────
+    function flagImg(imgCode, altText) {
+        return `<img src="https://flagcdn.com/20x15/${imgCode}.png"
+                     srcset="https://flagcdn.com/40x30/${imgCode}.png 2x"
+                     width="20" height="15"
+                     alt="${altText}"
+                     style="border-radius:2px;object-fit:cover;display:block;">`;
+    }
 
     // ── Helper: Set Cookie for Google Translate ───────────────
     function setGoogleTranslateCookie(langCode) {
@@ -52,10 +62,8 @@
     }
 
     // ── Languages that produce notably longer text than English ──
-    // These get body class 'lang-verbose' for CSS font-size overrides.
+    // These get body attribute 'data-lang-size=verbose' for CSS font-size overrides.
     const verboseLangs = ['fr', 'de', 'es', 'pt', 'it', 'pl', 'ru', 'nl', 'tr'];
-    // These produce shorter/compact text — no change needed.
-    // 'en', 'ja', 'zh-CN', 'ko', 'ar', 'hi', 'ta', 'vi', 'id', 'he', 'sw'
 
     // ── Apply body attribute for CSS targeting ────────────────
     function applyLangBodyClass(langCode) {
@@ -73,7 +81,6 @@
         localStorage.setItem(STORAGE_KEY, langCode);
         setGoogleTranslateCookie(langCode);
 
-        // Update UI components
         updateSelectorUI(langCode);
         applyLangBodyClass(langCode);
 
@@ -86,18 +93,18 @@
     function updateSelectorUI(activeCode) {
         const langObj = languages.find(l => l.code === activeCode) || languages[0];
 
-        // Update all desktop and mobile buttons
-        document.querySelectorAll('.lang-btn-current-flag').forEach(el => el.textContent = langObj.flag);
-        document.querySelectorAll('.lang-btn-current-name').forEach(el => el.textContent = langObj.name);
+        // Update flag image and name in all selector buttons (desktop + mobile)
+        document.querySelectorAll('.lang-btn-current-flag').forEach(el => {
+            el.innerHTML = flagImg(langObj.img, langObj.name);
+        });
+        document.querySelectorAll('.lang-btn-current-name').forEach(el => {
+            el.textContent = langObj.name;
+        });
 
-        // Update active checkmarks in list
+        // Update active checkmarks in dropdown list
         document.querySelectorAll('.lang-option').forEach(el => {
             const code = el.getAttribute('data-lang-code');
-            if (code === activeCode) {
-                el.classList.add('active');
-            } else {
-                el.classList.remove('active');
-            }
+            el.classList.toggle('active', code === activeCode);
         });
     }
 
@@ -106,10 +113,12 @@
         const searchInputId = `langSearch_${instanceId}`;
         const listId = `langList_${instanceId}`;
 
-        let optionsHTML = languages.map(l => `
-            <a href="javascript:void(0)" class="lang-option" data-lang-code="${l.code}" data-keywords="${l.name.toLowerCase()} ${l.native.toLowerCase()} ${l.keywords}">
+        const optionsHTML = languages.map(l => `
+            <a href="javascript:void(0)" class="lang-option"
+               data-lang-code="${l.code}"
+               data-keywords="${l.name.toLowerCase()} ${l.native.toLowerCase()} ${l.keywords}">
                 <div class="lang-option-left">
-                    <span class="flag-icon">${l.flag}</span>
+                    <span class="flag-icon">${flagImg(l.img, l.name)}</span>
                     <span>${l.name} <small class="text-muted fs-7">(${l.native})</small></span>
                 </div>
                 <i class="ri-check-line check-icon"></i>
@@ -118,15 +127,21 @@
 
         return `
             <div class="lang-selector-wrapper dropdown">
-                <button class="lang-btn" type="button" id="langDropdown_${instanceId}" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    <span class="lang-flag lang-btn-current-flag">🇬🇧</span>
+                <button class="lang-btn" type="button"
+                        id="langDropdown_${instanceId}"
+                        data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false">
+                    <span class="lang-flag lang-btn-current-flag"></span>
                     <span class="lang-btn-current-name">English</span>
                     <i class="ri-arrow-down-s-line lang-arrow"></i>
                 </button>
-                <div class="lang-dropdown-menu dropdown-menu dropdown-menu-end mb-2" aria-labelledby="langDropdown_${instanceId}">
+                <div class="lang-dropdown-menu dropdown-menu dropdown-menu-end"
+                     aria-labelledby="langDropdown_${instanceId}">
                     <div class="lang-search-box">
                         <i class="ri-search-line"></i>
-                        <input type="text" id="${searchInputId}" class="lang-search-input" placeholder="Search language..." autocomplete="off">
+                        <input type="text" id="${searchInputId}" class="lang-search-input"
+                               placeholder="Search language..." autocomplete="off">
                     </div>
                     <div class="lang-list" id="${listId}">
                         ${optionsHTML}
@@ -142,7 +157,7 @@
         const savedLang = localStorage.getItem(STORAGE_KEY) || getBrowserLanguage();
         setGoogleTranslateCookie(savedLang);
 
-        // Inject desktop selector if container exists or place in nav
+        // Inject desktop selector into navbar (before the Enquiry Now button)
         const desktopNav = document.querySelector('#mainNavbar .navbar-nav');
         if (desktopNav && !document.querySelector('.lang-selector-wrapper-desktop')) {
             const li = document.createElement('li');
@@ -151,7 +166,7 @@
             desktopNav.insertBefore(li, desktopNav.querySelector('.ms-lg-3') || null);
         }
 
-        // Inject mobile selector in offcanvas if container exists
+        // Inject mobile selector in offcanvas
         const mobileOffcanvasBody = document.querySelector('.mobile-nav .offcanvas-body');
         if (mobileOffcanvasBody && !document.querySelector('.lang-selector-wrapper-mobile')) {
             const div = document.createElement('div');
@@ -160,11 +175,11 @@
             mobileOffcanvasBody.appendChild(div);
         }
 
-        // Initial UI state update + apply body lang class on page load
+        // Set initial UI state
         updateSelectorUI(savedLang);
         applyLangBodyClass(savedLang);
 
-        // Event listener for language option clicks
+        // Handle language option clicks
         document.addEventListener('click', function (e) {
             const option = e.target.closest('.lang-option');
             if (option) {
@@ -174,30 +189,30 @@
             }
         });
 
-        // Event listener for live search filtering inside dropdowns
+        // Handle live search filtering inside dropdowns
         document.addEventListener('input', function (e) {
-            if (e.target && e.target.classList.contains('lang-search-input')) {
-                const query = e.target.value.toLowerCase().trim();
-                const menu = e.target.closest('.lang-dropdown-menu');
-                if (!menu) return;
+            if (!e.target || !e.target.classList.contains('lang-search-input')) return;
 
-                const options = menu.querySelectorAll('.lang-option');
-                const noResults = menu.querySelector('.lang-no-results');
-                let matches = 0;
+            const query = e.target.value.toLowerCase().trim();
+            const menu = e.target.closest('.lang-dropdown-menu');
+            if (!menu) return;
 
-                options.forEach(opt => {
-                    const keywords = opt.getAttribute('data-keywords') || '';
-                    if (keywords.includes(query)) {
-                        opt.classList.remove('hidden');
-                        matches++;
-                    } else {
-                        opt.classList.add('hidden');
-                    }
-                });
+            const options = menu.querySelectorAll('.lang-option');
+            const noResults = menu.querySelector('.lang-no-results');
+            let matches = 0;
 
-                if (noResults) {
-                    noResults.style.display = matches === 0 ? 'block' : 'none';
+            options.forEach(opt => {
+                const keywords = opt.getAttribute('data-keywords') || '';
+                if (keywords.includes(query)) {
+                    opt.classList.remove('hidden');
+                    matches++;
+                } else {
+                    opt.classList.add('hidden');
                 }
+            });
+
+            if (noResults) {
+                noResults.style.display = matches === 0 ? 'block' : 'none';
             }
         });
     }
@@ -211,7 +226,6 @@
     };
 
     function loadGoogleTranslateScript() {
-        // Create hidden element container if missing
         if (!document.getElementById('google_translate_element')) {
             const div = document.createElement('div');
             div.id = 'google_translate_element';
@@ -225,7 +239,7 @@
         document.head.appendChild(script);
     }
 
-    // DOM Ready Initialization
+    // ── DOM Ready Initialization ──────────────────────────────
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initLanguageSelector();
@@ -235,4 +249,5 @@
         initLanguageSelector();
         loadGoogleTranslateScript();
     }
+
 })();
