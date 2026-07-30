@@ -236,13 +236,13 @@
                 </div>
 
                 <!-- Hover Hint -->
-                <div class="hover-hint-wrap">
+                <!-- <div class="hover-hint-wrap">
                     <div class="hover-hint" id="exportSolutionsHoverHint">
                         <span class="hint-cursor">🖱️</span>
                         Hover cards to explore
                         <span class="hint-dot"></span>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Swiper Carousel -->
                 <div class="swiper services-swiper py-2 pb-0" data-aos="fade-up" data-aos-delay="150">
@@ -369,6 +369,8 @@
                     </div>
 
                     <!-- Swiper Pagination -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                     <div class="swiper-pagination mt-4 position-relative"></div>
                 </div>
             </div>
@@ -557,32 +559,33 @@
         </section>
 
         <!-- ── Why Choose Balaji ──────────────────────────────── -->
-        <section class="why-balaji-section">
+        <section class="why-balaji-section" style="background-image: url('./images/whybg.png')">
             <div class="container">
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4"
                     data-aos="fade-up">
-                    <div class="col-lg-8">
-                        <p class="section-label d-inline-block mb-2">Why Balaji</p>
-                        <h2 class="section-heading mb-4">We Believe Every Buyer Should Have Their Own Office in India
+                    <div class="col-lg-8 mb-5">
+                        <p class="section-label d-inline-block mb-2 text-white">Why Balaji</p>
+                        <h2 class="section-heading mb-4 text-white">We Believe Every Buyer Should Have Their Own Office
+                            in India
                             and
-                            Our mission is to be that Office
+                            Our mission is to be that Office.
                         </h2>
                         <p class="section-body fs-4"></p>
                     </div>
                     <!-- Hover Hint -->
-                    <div class="hover-hint-wrap mb-4 mb-md-0">
+                    <!-- <div class="hover-hint-wrap mb-4 mb-md-0">
                         <div class="hover-hint" id="whyServicesHoverHint">
                             <span class="hint-cursor">🖱️</span>
                             Hover cards to explore
                             <span class="hint-dot"></span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="row g-4" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="why-card mb-4">
                             <div class="card-hover-overlay"
                                 style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80');">
@@ -596,7 +599,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="why-card">
                             <div class="card-hover-overlay"
                                 style="background-image: url('https://images.unsplash.com/photo-1660980041852-230420b8f99f?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
@@ -610,9 +613,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 d-none d-lg-block"></div>
+                    <!-- <div class="col-lg-4 d-none d-lg-block"></div> -->
 
-                    <div class="col-lg-4 offset-lg-4">
+                    <div class="col-lg-3">
                         <div class="why-card mb-4">
                             <div class="card-hover-overlay"
                                 style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80');">
@@ -626,7 +629,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="why-card">
                             <div class="card-hover-overlay"
                                 style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80');">
@@ -645,7 +648,7 @@
         </section>
 
         <!-- ── Quality & Client Satisfaction ──────────────────── -->
-        <section class="quality-clients-section  pt-0">
+        <section class="quality-clients-section  ">
             <div class="container">
 
                 <!-- 1. Priority Quality -->
@@ -701,14 +704,21 @@
 
                         </div>
                     </div>
-                    <!-- Right: Offset Dual Images -->
+                    <!-- Right: Triple Image Mosaic -->
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-                        <div class="dual-images-wrapper">
-                            <div class="dual-image-left">
+                        <div class="triple-images-wrapper">
+                            <!-- Left: tall image -->
+                            <div class="tri-img-left">
                                 <img src="images/s-2.png" alt="Garment Factory Production" class="img-fluid">
                             </div>
-                            <div class="dual-image-right">
-                                <img src="images/s-3.png" alt="Sewing details thread spool" class="img-fluid">
+                            <!-- Right: stacked two images -->
+                            <div class="tri-img-right">
+                                <div class="tri-img-top">
+                                    <img src="images/s-3.png" alt="Sewing Details" class="img-fluid">
+                                </div>
+                                <div class="tri-img-bottom">
+                                    <img src="images/s-4.jpeg" alt="Happy Clients Meeting" class="img-fluid">
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             slidesPerView: 1.1,
             spaceBetween: 20,
+            navigation: {
+                nextEl: '.testimonials-swiper-wrapper .swiper-button-next, .testimonial-swiper .swiper-button-next',
+                prevEl: '.testimonials-swiper-wrapper .swiper-button-prev, .testimonial-swiper .swiper-button-prev',
+            },
             breakpoints: {
                 576: { slidesPerView: 1.3, spaceBetween: 20 },
                 768: { slidesPerView: 2.1, spaceBetween: 24 },
@@ -119,6 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 el: '.reels-swiper .swiper-pagination',
                 clickable: true,
             },
+            navigation: {
+                nextEl: '.reels-swiper .swiper-button-next',
+                prevEl: '.reels-swiper .swiper-button-prev',
+            },
         });
     }
 
@@ -135,8 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 pauseOnMouseEnter: true,
             },
             pagination: {
-                el: '.swiper-pagination',
+                el: '.services-swiper .swiper-pagination',
                 clickable: true,
+            },
+            navigation: {
+                nextEl: '.services-swiper .swiper-button-next',
+                prevEl: '.services-swiper .swiper-button-prev',
             },
             breakpoints: {
                 576: { slidesPerView: 1.5, spaceBetween: 24 },
@@ -371,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
             speed: 800,
             spaceBetween: 30,
-            slidesPerView: 1.1,
+            slidesPerView: 1,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -381,9 +393,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 el: '.collection-swiper .swiper-pagination',
                 clickable: true,
             },
+            navigation: {
+                nextEl: '.collection-swiper .swiper-button-next',
+                prevEl: '.collection-swiper .swiper-button-prev',
+            },
             breakpoints: {
-                576: { slidesPerView: 1.5, spaceBetween: 24 },
-                768: { slidesPerView: 2.2, spaceBetween: 24 },
+                576: { slidesPerView: 1, spaceBetween: 24 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
                 1024: { slidesPerView: 3, spaceBetween: 30 },
             },
         });
@@ -458,9 +474,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate countries if empty
         if (countrySelectEl && countrySelectEl.options.length <= 1) {
             const countries = [
-                "United States", "United Kingdom", "United Arab Emirates", "Saudi Arabia", 
-                "Germany", "France", "Canada", "Australia", "India", "Spain", "Italy", 
-                "Netherlands", "Singapore", "Japan", "South Korea", "Brazil", "Mexico", 
+                "United States", "United Kingdom", "United Arab Emirates", "Saudi Arabia",
+                "Germany", "France", "Canada", "Australia", "India", "Spain", "Italy",
+                "Netherlands", "Singapore", "Japan", "South Korea", "Brazil", "Mexico",
                 "South Africa", "Qatar", "Kuwait", "Oman", "Bahrain", "Egypt", "Kenya"
             ];
             countries.forEach(c => {
