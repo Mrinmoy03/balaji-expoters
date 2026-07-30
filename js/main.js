@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Trigger animation when any stats-row comes into view (works on all pages)
-    const statsRow = document.querySelector('.stats-row');
+    const statsRow = document.querySelector('.home-stats-row, .stats-row');
     if (statsRow && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
